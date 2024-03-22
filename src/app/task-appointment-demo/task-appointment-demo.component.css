@@ -1,0 +1,282 @@
+/* *{
+    font-family: system-ui, sans-serif;
+} */
+
+.page-header {
+  margin: 0 0 12px;
+  border-bottom: 1px dotted #E2E2E2;
+  padding-bottom: 16px;
+  padding-top: 7px;
+  font-family: system-ui, sans-serif;
+}
+
+.page-header h1 {
+  margin: 0 8px;
+  font-size: 24px;
+  font-weight: lighter;
+  color: #2679B5;
+  font-family: system-ui, sans-serif;
+}
+
+.page-header h1 small {
+  margin: 0 6px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #8089A0;
+  font-family: system-ui, sans-serif;
+}
+
+.search {
+  font-size: 14px;
+}
+
+.breadcrumb {
+  background-color: #F5F5F5;
+  border: 1px solid #E5E5E5;
+  border-width: 0 0 1px;
+  position: relative;
+  z-index: auto;
+  border-bottom: 1px solid #E5E5E5;
+  background-color: #F5F5F5;
+  min-height: 41px;
+  line-height: 40px;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #333;
+  border-radius: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: #fff !important;
+  border: 1px solid #ddd !important;
+  background-color: transparent;
+  line-height: 1.42857143;
+  background-color: #fff;
+  padding: 5px;
+  padding: 25px;
+  font-size: 14px;
+  font-family: system-ui, sans-serif;
+}
+
+.table td,
+.table th {
+  background-color: #fff !important
+}
+
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid #ddd !important
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #f9f9f9
+}
+
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd
+}
+
+.table>tbody+tbody {
+  border-top: 2px solid #ddd
+}
+
+.table-bordered,
+.table-bordered>tbody>tr>td,
+.table-bordered>tbody>tr>th,
+.table-bordered>tfoot>tr>td,
+.table-bordered>tfoot>tr>th,
+.table-bordered>thead>tr>td,
+.table-bordered>thead>tr>th {
+  border: 1px solid #ddd
+}
+
+.table-bordered>thead>tr>td,
+.table-bordered>thead>tr>th {
+  border-bottom-width: 2px
+}
+
+.dataTables_wrapper {
+  font-size: 13px;
+}
+
+.dataTables_paginate a.paginate_button {
+  margin: 0 10px;
+  color: #8089A0;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+form{
+  font-size: 12px;
+}
+label{
+  color: #393939;
+  font-weight: 400;
+  font-size: 14px;
+  font-family: system-ui, sans-serif;
+  /* font-weight: 00; */
+  /* font: 14px 'Open Sans'; */
+}
+.btn-info, .btn-info.focus, .btn-info:focus {
+  background-color: #003974!important;
+  border-color: #003974;
+}
+.btn {
+  color: #FFF!important;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  background-image: none!important;
+  border: 5px solid #FFF;
+  border-radius: 0;
+  box-shadow: none!important;
+  -webkit-transition: background-color .15s,border-color .15s,opacity .15s;
+  -o-transition: background-color .15s,border-color .15s,opacity .15s;
+  transition: background-color .15s,border-color .15s,opacity .15s;
+  vertical-align: middle;
+  margin: 0;
+  position: relative;
+}
+/* .breadcrumb, .breadcrumb>li>a, .btn {
+  display: inline-block;
+} */
+.btn, .dropdown-colorpicker a {
+  cursor: pointer;
+}
+.btn-info {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  /* line-height: 1.42857143; */
+  /* border-radius: 4px; */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* .btn, .btn-default, .btn-default.focus, .btn-default:focus, .btn.focus, .btn:focus {
+  background-color: #ABBAC3!important;
+  border-color: #ABBAC3;
+} */
+.canc{
+  background-color: #ABBAC3!important;
+  border-color: #ABBAC3;
+}
+
+
+.form-select , .form-control {
+  font-weight: 400;
+  font-size: 13px; /* Adjust the value to your preferred text size */
+}
+
+/* Increase the text size for select fields */
+.select {
+  font-weight: 400;
+  font-size: 14px; /* Adjust the value to your preferred text size */
+}
+
+
+
+/* .btn-info,.btn-info.focus,.btn-info:focus {
+  background-color: #003974!important;
+  border-color: #003974
+} */
+
+.btn-info:hover,.btn-info:active:hover,.btn-info:focus:active,.btn-info:focus:hover,.btn-info:hover,.open>.btn-info.dropdown-toggle,.open>.btn-info.dropdown-toggle.focus,.open>.btn-info.dropdown-toggle:active,.open>.btn-info.dropdown-toggle:focus,.open>.btn-info.dropdown-toggle:hover {
+  background-color: #4F99C6!important;
+  border-color: #003974;
+  border: 5px solid #003974 ;
+
+}
+.empform{
+  border: 2px solid red;
+}
+.box{
+  margin-top: 7%;
+}
+@media (max-width: 820px) {
+  .box{
+     margin-top: 15%;
+  }
+}
+.tab-content {
+  border: 1px solid #C5D0DC;
+  padding: 16px 12px;
+  position: relative;
+}
+.nav-tabs {
+  border-color: #C5D0DC;
+  margin-bottom: 0!important;
+  position: relative;
+  top: 1px;
+}
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
+}
+
+
+.nav-tabs>li {
+  font-family: system-ui, sans-serif;
+  border-top: 1px solid #C5D0DC;
+  border-right: 1px solid #C5D0DC;
+  border-left: 1px solid #C5D0DC;
+}
+
+
+.nav-tabs>li>a, .nav-tabs>li>a:focus {
+  border-radius: 0!important;
+  border-color: #C5D0DC;
+  background-color: #F9F9F9;
+  color: #999;
+  /* margin-right: -1px; */
+  line-height: 18px;
+  position: relative;
+  font-size: 14px;
+  padding: 3px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  color: #576373;
+  border-color: #C5D0DC #C5D0DC transparent;
+  border-top: 2px solid #4C8FBD;
+  background-color: #FFF;
+  z-index: 1;
+  line-height: 18px;
+  margin-top: -1px;
+  box-shadow: 0 -2px 3px 0 rgba(0,0,0,.15);
+}

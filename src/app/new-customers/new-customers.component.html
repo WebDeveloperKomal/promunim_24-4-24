@@ -1,0 +1,661 @@
+<html style="position: relative;margin: 0;min-height: 100%;padding-bottom: 4.74rem;">
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb bg-white">
+    <svg width="17" height="13" viewBox="0 0 17 13" style="margin-right: 3px;margin-top: 10px; margin-left: 10px" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 6.50074C0.0655341 6.42034 0.12102 6.32751 0.19835 6.26177C2.52131 4.2905 4.84603 2.32145 7.17117 0.353291C7.72909 -0.118872 8.33069 -0.117539 8.88948 0.355956C9.61603 0.971589 10.3408 1.58944 11.0665 2.20596C11.1058 2.23928 11.1469 2.27081 11.2094 2.32101C11.2133 2.24727 11.2181 2.19797 11.2181 2.14822C11.2186 1.585 11.2177 1.02178 11.219 0.458561C11.2194 0.136087 11.323 0.0325933 11.6437 0.0321491C12.2134 0.0312607 12.7831 0.0312607 13.3528 0.0321491C13.6577 0.0330374 13.7674 0.145415 13.7674 0.456785C13.7678 1.74801 13.7696 3.03924 13.7648 4.33047C13.7643 4.44996 13.8015 4.52369 13.8902 4.59787C14.5442 5.14421 15.1939 5.69588 15.8453 6.24578C16.1105 6.46964 16.1253 6.62288 15.9069 6.88806C15.7457 7.0835 15.5857 7.27983 15.4232 7.47438C15.2428 7.69025 15.0711 7.70535 14.8566 7.52368C12.6489 5.6528 10.4413 3.78147 8.2337 1.91014C8.16991 1.85595 8.10525 1.8022 8.0288 1.7378C7.77846 1.94923 7.5303 2.15844 7.28258 2.36853C5.25976 4.08351 3.23695 5.79849 1.21413 7.51302C0.983448 7.70846 0.815681 7.69469 0.624758 7.46194C0.415049 7.20654 0.207961 6.94847 0 6.69173C0 6.62821 0 6.5647 0 6.50074Z" fill="#004C8C"/>
+      <path d="M8.03247 2.62988C8.92505 3.37788 9.80408 4.11389 10.6831 4.85034C11.6709 5.67829 12.6574 6.50757 13.6479 7.33241C13.7387 7.40792 13.7711 7.48521 13.7711 7.60203C13.7676 9.15355 13.7693 10.7051 13.7685 12.2566C13.7685 12.7323 13.5089 12.9984 13.0419 12.9988C11.8505 13.0001 10.6586 12.9993 9.46723 12.9988C9.42136 12.9988 9.37548 12.9944 9.31213 12.9913C9.31213 11.7005 9.31213 10.4177 9.31213 9.1229C8.45626 9.1229 7.61786 9.1229 6.75718 9.1229C6.75718 10.407 6.75718 11.6934 6.75718 12.9913C6.68422 12.9944 6.63354 12.9988 6.58242 12.9988C5.39626 12.9993 4.20965 12.9997 3.02348 12.9988C2.54727 12.9984 2.29169 12.7345 2.29169 12.2455C2.29125 10.6993 2.293 9.1531 2.28907 7.60691C2.28863 7.48343 2.3262 7.40437 2.42057 7.3253C4.24111 5.80443 6.05859 4.27912 7.87694 2.75514C7.925 2.71517 7.97393 2.67697 8.03247 2.62988Z" fill="#004C8C"/>
+      </svg>
+    <li class="fw-bold">&#160;&#160;
+        <a routerLink="/set/">Home&#160;</a>
+      <i class="fa-solid fa-chevron-right"></i>
+    </li>
+    <li class="active fw-bold" aria-current="page"><a routerLink="/set/allnewcustomer" style="color: #3BB161 !important;" >&#160;New Customer</a></li>
+  </ol>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <div class="page-header">
+            <div class="col text-start">
+            <h1>
+              New Customer
+            </h1>
+            </div>
+          </div>
+
+          <div>
+          
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container ">
+        <div class="row">
+          <div class="col">
+            <div class="page-header">
+              <h1>
+                New Customer
+              </h1>
+            </div>
+            <div>
+              <button *ngIf="insertTempCust" type="button" routerLink="/set/add-new-customer" class="btn btn-info" style="float: right;">
+                Add New Customer</button>
+            </div> -->
+
+
+            <!-- <div class="container box pb-2" style="border: 1px solid #8b98a1;"> -->
+              <form [formGroup]="employeeForm" class=" col-md-12 col-sm-12 col-xs-12 mt-2" id="emplform">
+                <div class="row">
+                  <div class="form-floating col-lg-3 col-md-11 col-11 mb-3 mb-lg-0">
+                  
+                    <select formControlName="branch" class="form-select ">
+
+                      <option value="">Select Status</option>
+                      <option value="1001">Hadapsar</option>
+
+                      <option value="1010">Solapur</option>
+
+                      <option value="1020">Daund</option>
+
+                      <option value="1040">Katraj</option>
+
+                      <option value="1030">Phaltan</option>
+
+                      <option value="1050">Sinhgad Road</option>
+
+                      <option value="1060">Ahmednagar</option>
+
+                      <option value="1070">Satara</option>
+
+                      <option value="1080">Lohegaon</option>
+
+                      <option value="1090">Bhosari</option>
+
+                      <option value="1100">Pimpri</option>
+
+                      <option value="1550">Kunjirwadi</option>
+
+                      <option value="1110">Chinchwad</option>
+
+                      <option value="1120">Kolhapur</option>
+
+                      <option value="1140">Nagpur</option>
+
+                      <option value="1130">Ratnagiri</option>
+
+                      <option value="1150">Aurangabad</option>
+
+                      <option value="1160">Nashik</option>
+
+                      <option value="1170">Navi Mumbai</option>
+
+                      <option value="1180">Mumbai</option>
+
+                      <option value="1190">Panaji</option>
+
+                      <option value="1200">Ahmadabad</option>
+
+                      <option value="1230">Chennai</option>
+
+                      <option value="1220">Amaravati</option>
+
+                      <option value="1210">Bengaluru</option>
+
+                      <option value="1240">Kochi</option>
+
+                      <option value="1250">Hyderabad</option>
+
+                      <option value="1260">Ranchi</option>
+
+                      <option value="1270">Bhopal</option>
+
+                      <option value="1280">Patna</option>
+
+                      <option value="1290">Raipur</option>
+
+                      <option value="1300">Jaipur</option>
+
+                      <option value="1310">Kolkata</option>
+
+                      <option value="1320">Lucknow</option>
+
+                      <option value="1330">Chandigarh</option>
+
+                      <option value="1340">Bhubaneshwar</option>
+
+                      <option value="1350">Agartala</option>
+
+                      <option value="1360">Gangtok</option>
+
+                      <option value="1370">Kohima</option>
+
+                      <option value="1380">Aizawl</option>
+
+                      <option value="1390">Shillong</option>
+
+                      <option value="1400">Imphal</option>
+
+                      <option value="1410">Dehradun</option>
+
+                      <option value="1420">Shimla</option>
+
+                      <option value="1430">Gurgoan</option>
+
+                      <option value="1440">Guwahati</option>
+
+                      <option value="1450">Itanagar</option>
+
+                      <option value="1460">Andaman</option>
+
+                      <option value="1470">Daman</option>
+
+                      <option value="1480">Jammu</option>
+
+                      <option value="1490">Kashmir</option>
+
+                      <option value="1500">Andrott</option>
+
+                      <option value="1510">Leh</option>
+
+                      <option value="1520">Puducherry</option>
+
+                      <option value="1530">Connaught Place</option>
+
+                      <option value="1540">Indore</option>
+
+                    </select>
+                    <label for="location">Select Branch :</label>
+                  </div>
+
+
+
+                  <div class="form-floating col-lg-3 col-md-11 col-11 mb-3 mb-lg-0">
+                    
+                    <input type="date" formControlName="fromdate" class="form-control">
+                    <label for="department">From Date</label>
+                  </div>
+
+                  <div class="form-floating col-lg-3 col-md-11 col-11 mb-3 mb-lg-0">
+                   
+                    <input type="date" formControlName="todate" class="form-control">
+                    <label for="department">To Date</label>
+                  </div>
+
+                  <div class="text-center col-lg-3 col-md-11 col-11 mt-xl-3">
+                    <button type="button" class="col-3 col-lg-10 col-xl-5 btn  btn-info" style="text-align: center;"   >
+                             Submit</button>
+                          <button type="reset" class="col-3 col-lg-10 col-xl-5 btn btn-info mt-lg-1" style="text-align: center;">
+                              Cancel      
+                           </button>
+                     </div>
+                  <!-- <div class="text-end">
+                    <button type="button" class="btn btn-info  m-lg-3 m-4"><i
+                        class="ace-icon fa fa-check bigger-110"></i>
+                      Submit</button>
+
+                    <button type="reset" class="btn canc m-lg-3 m-4">
+                      <i class="ace-icon fa fa-undo bigger-110"></i>
+                      Reset
+                    </button>
+                  </div> -->
+
+                  <!--                   
+                    <div class="col text-end">
+                      <button type="button" class="btn btn-info m-lg-3 m-4"><i class="ace-icon fa fa-check bigger-110"></i> Submit</button>
+                      <button type="button" class="btn canc m-lg-3 m-4"><i class="ace-icon fa fa-undo bigger-110"></i> Reset</button>
+                  </div> -->
+                </div>
+
+
+
+              </form>
+
+                           
+        <div class="page-header" >
+          <div class="col  text-start">
+            <div class="dataTables_length" id="branch_datatable_length"> 
+          <p>Show
+            <select name="branch_datatable_length" (ngModelChange)="refreshCountries()" [(ngModel)]="pageSize"
+              aria-controls="branch_datatable" style=" border: 0.46063px solid #3BB161;
+              border-radius: 10px;color: #004C8C; ">
+          <option [ngValue]="10">10</option>
+              <option [ngValue]="25">25</option>
+              <option [ngValue]="50">50</option>
+              <option [ngValue]="100">100</option>
+            </select> entries
+          </p>
+          </div>
+          </div>
+    
+
+<p><input class="w-100 search" type="text"   [(ngModel)]="SearchText"
+(input)="applyFilter()" placeholder="search" aria-controls="branch_datatable">
+<!-- <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: relative; top : -28px ; right: -90%">
+<path d="M6.59222 7.21594C4.72692 8.64196 2.25072 8.25756 0.893999 6.59439C-0.397597 5.01336 -0.278206 2.65578 1.17775 1.19256C2.63215 -0.269108 4.97966 -0.40396 6.57981 0.881008C8.24199 2.21558 8.66218 4.69561 7.21863 6.59594C7.72721 7.09969 8.23889 7.605 8.74901 8.11186C8.80638 8.16766 8.86375 8.22346 8.91027 8.28856C9.04206 8.46991 9.02656 8.70241 8.87771 8.85897C8.7211 9.02172 8.47147 9.05272 8.2916 8.90392C8.11329 8.75667 7.95514 8.58461 7.79078 8.42031C7.38919 8.01886 6.98915 7.61585 6.59222 7.21594ZM0.890898 3.97175C0.818022 5.65507 2.20575 7.13224 3.92995 7.20664C5.65259 7.28104 7.13646 5.90308 7.20778 4.1624C7.2791 2.42638 5.90688 0.966259 4.13152 0.893408C2.42128 0.822107 0.968424 2.20163 0.890898 3.97175Z" fill="#3BB161"/>
+</svg> -->
+
+</p>
+<p><input *ngIf="insertTempCust" type="button" routerLink="/set/add-new-customer" class="btn btn-info" style="border-radius: 20px; padding: 5px 25px;float: right; margin-left: 10px;" 
+value="Add New Customer" >
+</p>
+</div>
+            <!-- </div> -->
+
+
+
+            <!-- <div id="branch_datatable_wrapper" class="dataTables_wrapper no-footer mt-5">
+              <div class="row">
+                <div class="col-lg-9 col-md-8">
+                  <div class="dataTables_length" id="branch_datatable_length">
+                    <p>Show
+                      <select name="branch_datatable_length" (ngModelChange)="refreshCountries()" [(ngModel)]="pageSize"
+                        aria-controls="branch_datatable">
+                       
+                        <option [ngValue]="10">10</option>
+                        <option [ngValue]="25">25</option>
+                        <option [ngValue]="50">50</option>
+                        <option [ngValue]="100">100</option>
+                      </select> entries
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                  <div class="dataTables_filter" id="branch_datatable_filter">
+                    <p>Search:
+                      <input type="text" [(ngModel)]="SearchText" (input)="applyFilter()" placeholder=""
+                        aria-controls="branch_datatable">
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+
+            <table class="table rounded-table">
+              <thead>
+                <tr>
+                  <th>Sr. No.</th>
+                  <th>Business Name</th>
+                  <th>Full Name</th>
+                  <th>Contact Number</th>
+                  <th>Attended By</th>
+                  <th>Date of Creation</th>
+                  <th>Branch</th>
+                  <th  *ngIf="view || updateTempCust || deleteTempCust">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="let data of temCustomerList  | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize,let index = index ">
+                  <td>{{(page - 1) *pageSize + index + 1}}</td>
+                  <td>{{data.tempCustCompanyName}}</td>
+                  <td>{{data.tempCustFullName}}</td>
+                  <td>{{data.tempCustContactNo}}</td>
+                  <td>{{data.attendedByFN}} {{data.attendedByLN}}</td>
+                  <td>{{data.tempCustCreationDate}}</td>
+                  <td>{{data.tempCustBranchName}}</td>
+                  <td *ngIf="view || updateTempCust || deleteTempCust">
+                    <button *ngIf="view" class="btn btn-xs"
+                      (click)="ShowDetails(data)" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                      <svg width="4" height="15" viewBox="0 0 4 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.04411 9.30684C3.04411 10.5495 3.05005 11.793 3.04241 13.0356C3.03647 13.9941 2.40285 14.6752 1.53173 14.6795C0.667388 14.6837 0.010864 13.9992 0.00662286 13.0407C-0.00270759 10.5122 -0.00270759 7.98446 0.0100157 5.45591C0.0151051 4.53559 0.694532 3.8621 1.547 3.87821C2.41388 3.89433 3.03647 4.56273 3.03987 5.49323C3.04411 6.76471 3.04072 8.03535 3.04072 9.30684C3.04241 9.30684 3.04326 9.30684 3.04411 9.30684Z" fill="#004C8C"/>
+                        <path d="M0.132813 1.3996C0.131965 0.6116 0.73081 0.00512118 1.51626 3.18407e-05C2.29663 -0.0050575 2.92686 0.600574 2.94298 1.37076C2.95909 2.13925 2.29917 2.80341 1.5239 2.79917C0.752864 2.79493 0.133662 2.17233 0.132813 1.3996Z" fill="#004C8C"/>
+                        </svg>
+                    </button>&nbsp;&nbsp;
+
+                    <button *ngIf="updateTempCust" class="btn btn-xs"
+                    style="font-size: 13px; border: 0; background-color: transparent;" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal" (click)="ShowDetails(data)"   >
+                      <i class="fa-solid fa-pen-to-square fa-lg" style="color: #3BB161;"></i>
+                    </button>&nbsp;&nbsp;
+
+                    <button *ngIf="deleteTempCust" class="btn btn-xs"
+                    style=" font-size: 13px; color:#DC3545;  border: 0; background-color: transparent;"
+                      (click)="delete(data.tempCustId)">
+                      <i class="fa-solid fa-trash-can fa-lg"></i>
+                    </button>
+
+
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog ">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New Customer Info</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+
+                            <h6 class="modal-title" id="exampleModalLabel">Bussiness Name :</h6>
+
+                            <table class="table rounded-table " >
+                              <tr class="text-center">
+                                <th  style="text-align: left;"  >Customer Full Name</th>
+                                <td  style="text-align: left;">{{selecteddata?.tempCustFullName}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Branch</th>
+                                <td style="text-align: left;"> {{selecteddata?.tempCustBranchName}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Email</th>
+                                <td style="text-align: left;">{{selecteddata?.tempCustEmailId}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Contact No.</th>
+                                <td style="text-align: left;">{{selecteddata?.tempCustContactNo}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;" >Alt Contact No.</th>
+                                <td style="text-align: left;">{{selecteddata?.tempCustAltContactNo}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Address</th>
+                                <td style="text-align: left;"> {{selecteddata?.tempCustAddesss}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">City</th>
+                                <td style="text-align: left;">{{selecteddata?.tempCustcity}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Pin</th>
+                                <td style="text-align: left;">{{selecteddata?.tempCustPinCode}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Product</th>
+                                <td style="text-align: left;"> {{selecteddata?.tempCustProduct}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Constitution</th>
+                                <td style="text-align: left;">{{selecteddata?.tempCustConstitution}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Segment</th>
+                                <td style="text-align: left;">{{selecteddata?.tempCustSegment}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Nature Of Business</th>
+                                <td style="text-align: left;">{{selecteddata?.tempCustBussiNature}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Maintaining ITR</th>
+                                <td style="text-align: left;">{{selecteddata?.tempCustMaintITR}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Lead Type</th>
+                                <td style="text-align: left;">{{selecteddata?.tempCustLeadType}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Lead Status</th>
+                                <td style="text-align: left;"> {{selecteddata?.tempCustLeadStatus}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Attended By </th>
+                                <td style="text-align: left;">{{selecteddata?.attendedByFN}} {{data.attendedByLN}}</td>
+                              </tr>
+                              <tr>
+                                <th style="text-align: left;">Creation Date</th>
+                                <td style="text-align: left;">{{selecteddata?.tempCustCreationDate}}</td>
+                              </tr>
+                            </table>
+                          </div>
+
+                         
+                          <div class="text-center align-middle mb-3">
+                            <button class="btn btn-info" data-bs-dismiss="modal"
+                              style="border-radius: 2rem;width: 200px;text-align: center;" type="button">
+                              <!-- <i class="ace-icon fa fa-check bigger-110"></i> -->
+                              Close
+                            </button>
+
+                          </div>
+                          <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Update</button>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+
+
+                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Update New Customer</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+
+                            <form [formGroup]="custForm1" class=" col-md-12 col-sm-12 col-xs-12 mt-3">
+                              <div class="container">
+
+                                <div class="form-group row mb-3">
+                                  <!-- <div class="form-floating col-lg-3 col-md-11 col-11 mb-3 mb-lg-0"> -->
+                                    <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0" >
+                                   
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <input type="text" formControlName="customerId"  class="form-control">
+                                    <label for="customerId" class="col-lg-4 col-4 control-label">Customer ID:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <!-- <div class="form-floating col-lg-3 col-md-11 col-11 mb-3 mb-lg-0">0 -->
+                                    <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0" >
+                                   
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <input type="text" formControlName="companyName"  class="form-control">
+                                    <label for="companyName" class="col-lg-4 col-4 control-label">Company
+                                      Name:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <!-- <div class="form-floating col-lg-3 col-md-11 col-11 mb-3 mb-lg-0"> -->
+                                    <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0" >
+                                
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <input type="text" formControlName="customerFullName"  class="form-control">
+                                    <label for="customerFullName" class="col-lg-4 col-4 control-label">Full Name:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <!-- <div class="form-floating col-lg-3 col-md-11 col-11 mb-3 mb-lg-0"> -->
+                                    <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0" >
+                                
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <input type="text" formControlName="emailId" class="form-control">
+                                    <label for="emailId" class="col-lg-4 col-4 control-label">Email Id:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <!-- <div class="form-floating col-lg-3 col-md-11 col-11 mb-3 mb-lg-0"> -->
+                                    <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0" >
+                                 
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <input type="text" formControlName="contactNo" class="form-control">
+                                    <label for="contactNo" class="col-lg-4 col-4 control-label">Contact
+                                      Number:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <!-- <div class="form-floating col-lg-3 col-md-11 col-11 mb-3 mb-lg-0"> -->
+                                    <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0" >
+                               
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <input type="text" formControlName="altContactNo" class="form-control">
+                                    <label for="altContactNo" class="col-lg-4 col-4 control-label">Alternative
+                                      Contact Number:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <!-- <div class="form-floating col-lg-3 col-md-11 col-11 mb-3 mb-lg-0"> -->
+                                    <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0" >
+                                  
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <textarea class="form-control" id="address" rows="3" formControlName="address"
+                                      required> </textarea>
+                                      <label for="address" class="col-lg-4 col-4 control-label">Address:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <!-- <div class="form-floating col-lg-3 col-md-11 col-11 mb-3 mb-lg-0"> -->
+                                    <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0" >
+                                 
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <input type="text" formControlName="city" class="form-control">
+                                    <label for="city" class="col-lg-4 col-4 control-label">City:</label>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row mb-3">
+                                  <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0">
+                                 
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <input type="text" formControlName="pinCode" class="form-control">
+                                    <label for="pinCode" class="col-lg-4 col-4 control-label">Pincode:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0">
+                                 
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <select class="form-select" formControlName="constitutionOfCompany" id="status">
+                                      <option value="">----------- Select Customer----------- </option>
+                                      <option value="PROPRITER">PROPRITER </option>
+                                      <option value="PARTNERSHIP">PARTNERSHIP</option>
+                                      <option value="PVT.LTD.">PVT. LTD.</option>
+
+                                    </select>
+
+                                    <label for="constitutionOfCompany" class="col-lg-4 col-4 control-label">Constitution of
+                                      Company:</label>
+                                  </div>
+                                </div>
+
+                                <div class="form-group row mb-3">
+                                  <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0">
+                                
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <select class="form-select" formControlName="segment" id="status">
+                                      <option value="">----------- Select ----------- </option>
+                                      <option value="Service Provider">Service Provider</option>
+                                    <option value="Agriculture Services">Agriculture Services</option>
+                                    <option value="Professional Services">Professional Services</option>
+                                    </select>
+                                    <label for="segment" class="col-lg-4 col-4 control-label">Segment:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0">
+                                 
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <select class="form-select" formControlName="natureOfBussiness" id="status">
+                                      <option value="">-----------------------Select------------------------ </option>
+                                    <option value="Repair & Mainatenance">Repair & Mainatenance</option>
+                                    <option value="Packaging & Printing">Packaging & Printing</option>
+                                    <option value="Fabrication">Fabrication</option>
+                                    </select>
+                                    <label for="natureOfBussiness" class="col-lg-4 col-4 control-label">Nature Of
+                                      Business:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0">
+                                
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <select class="form-select" formControlName="maintainingITR" id="status">
+                                      <option value="">-----------------------Select------------------------ </option>
+                                      <option value="YES">YES</option>
+                                      <option value="NO">NO </option>
+                                    </select>
+                                    <label for="maintainingITR" class="col-lg-4 col-4 control-label">Maintaining
+                                      ITR:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0">
+                                  
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <select class="form-select" formControlName="leadType" id="status">
+                                      <option value="">----------- Select Customer----------- </option>
+                                      <option value="HOT">HOT </option>
+                                      <option value="WARM">WARM </option>
+                                      <option value="COLD">COLD </option>
+                                    </select>
+                                    <label for="leadType" class="col-lg-4 col-4 control-label">Lead Type:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0">
+                                 
+                                  <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <select class="form-select" formControlName="leadStatus" id="status">
+                                      <option value="">----------- Select Customer----------- </option>
+                                      <option value="INTERESTED">INTERESTED </option>
+                                      <option value="NOT INTERESTED">NOT INTERESTED </option>
+                                    </select>
+                                    <label for="leadStatus" class="col-lg-4 col-4 control-label">Lead
+                                      Status:</label>
+                                  </div>
+                                </div>
+                                <div class="form-group row mb-3">
+                                  <div class="form-floating col-lg-11 col-md-11 col-11 mb-3 mb-lg-0">
+                                 
+                                   <!-- <div class="col-lg-8 col-md-8 col-8 "> -->
+                                    <select class="form-select" formControlName="productId" id="status">
+                                      <option value="">-----------------------Select------------------------ </option>
+                                    <option *ngFor="let product of products" value={{product.productId}}>{{product.productId}} - {{product.productName}} ({{product.minValue}} - {{product.maxValue}})</option>
+                                    </select>
+                                    <label for="productId" class="col-lg-4 col-4 control-label">Product:</label>
+                                  </div> 
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                          <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" (click)="update()">Update</button>
+                          </div> -->
+                          <div class="text-center align-middle mb-4">
+                            <button class="col-3 col-lg-4 col-xl-4 btn  btn-info" style="border-radius: 2rem; text-align: center;"
+                            (click)="update()" type="submit">
+                              <!-- <i class="ace-icon fa fa-check bigger-110"></i> -->
+                              Update
+                            </button>
+      
+                            <button class="col-3 col-lg-4 col-xl-4 btn  btn-info" style="border-radius: 2rem;text-align: center;">
+                              <!-- <i class="ace-icon fa fa-undo bigger-110"></i> -->
+                              Close
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>  
+
+                  </td>
+                </tr>
+              </tbody>
+
+
+            </table>
+ <div class="d-flex justify-content-between p-2 pag">
+              <div class="dataTables_info mt-3"  id="branch_datatable_info" role="status"
+                aria-live="polite">
+                Showing {{(page - 1) * pageSize + 1}} to {{(page * pageSize < temCustomerList.length) ? page * pageSize :
+                  temCustomerList.length}} of {{temCustomerList.length}} entries </div>
+                  <ngb-pagination  [collectionSize]="collectionSize" [(page)]="page"
+                  [pageSize]="pageSize" [maxSize]="5"
+                    aria-label="Default pagination"></ngb-pagination>
+
+              </div>
+
+          </div>
+        </div>
+      </div>
+
+      <app-footer style="position: absolute;right: 0;left: 0;bottom: 0;"></app-footer>
+  </html>
+      <!-- <app-footer style="margin-top: auto;"></app-footer> -->

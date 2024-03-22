@@ -1,0 +1,147 @@
+
+.breadcrumb {
+    background-color: #F5F5F5;
+    position: relative;
+    z-index: auto;
+    background-color: #F5F5F5;
+    padding-left: 10px;
+    margin-bottom: 0px !important;
+    font-size: 10px;
+    color: #333;
+    font-family: Comfortaa;
+font-size: 12px;
+font-weight: 700;
+line-height: 36px;
+letter-spacing: 0em;
+text-align: left;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    margin-right: 5px;
+   }
+.breadcrumb i{
+    color: #3BB161;
+    margin-right: 5px;
+}
+
+
+
+.branchname{
+ font-family: Comfortaa;
+font-size: 10px;
+font-weight: 700;
+line-height: 29px;
+letter-spacing: 0em;
+text-align: left;
+color: #004C8C;
+
+}
+.page-header {
+    padding-top: 3px;
+    margin-top: 12px;
+    display: flex;
+}
+
+
+h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #004C8C;
+    line-height : 24.53px ;
+    font-family:  comfortaa ;
+}
+
+
+.btn-info{
+    height: 36px;
+    color: #fff;
+    background-color: #004C8C;
+    border-color: #004C8C;
+    font-size: 10px;
+    font-family: Comfortaa;
+font-weight: 700;
+letter-spacing: 0em;
+border-radius: 20px;
+}
+  
+form{
+    font-size: 12px;
+}
+
+form{
+    background-color:  #FFFFFF;
+     border: 1px solid rgba(0, 0, 0, 0.35);; 
+     border-radius : 5px;
+    padding: 20px;
+   
+}
+h6{
+    font-family: Comfortaa;
+font-size: 10px;
+font-weight: 700;
+/* line-height: 53px; */
+letter-spacing: 0em;
+text-align: center;
+
+}
+.form-control , .form-select{
+    border: 1px solid #636363;
+    border-radius: 10px;
+}
+
+    
+label{
+    color: #004c8c!important;
+    font-weight: 700;
+    width: auto;
+    left: 15px;
+font-size: 12px;
+}
+
+input{
+    font-family: Comfortaa;
+font-size: 10px;
+font-weight: 500;
+text-align: left;
+color: #636363;
+
+}
+
+.form-group {
+    justify-content: center;
+  }
+  
+  .duedate {
+    text-align: left;
+  }
+  
+.form-control , .form-select {
+    font-weight: 400;
+    font-size: 12px; 
+}
+
+
+.form-select option {
+    margin: 15px; 
+    padding: 5px; 
+    
+}
+
+.select {
+    font-weight: 400;
+    font-size: 15px; 
+}
+
+.form-control {
+    font-weight: 400;
+    font-size: 12px; 
+}
+
+.plus{
+    color: #fff;
+    background-color: #3BB161;
+    border-color: #46b8da;
+    border-radius: 50%;
+    
+}

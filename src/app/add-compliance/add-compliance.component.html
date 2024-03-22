@@ -1,0 +1,129 @@
+<html style="position: relative;margin: 0;min-height: 100%;padding-bottom: 4.74rem;">
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-white">
+      <svg width="17" height="13" viewBox="0 0 17 13" style="margin-right: 3px;margin-top: 10px; margin-left: 10px" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 6.50074C0.0655341 6.42034 0.12102 6.32751 0.19835 6.26177C2.52131 4.2905 4.84603 2.32145 7.17117 0.353291C7.72909 -0.118872 8.33069 -0.117539 8.88948 0.355956C9.61603 0.971589 10.3408 1.58944 11.0665 2.20596C11.1058 2.23928 11.1469 2.27081 11.2094 2.32101C11.2133 2.24727 11.2181 2.19797 11.2181 2.14822C11.2186 1.585 11.2177 1.02178 11.219 0.458561C11.2194 0.136087 11.323 0.0325933 11.6437 0.0321491C12.2134 0.0312607 12.7831 0.0312607 13.3528 0.0321491C13.6577 0.0330374 13.7674 0.145415 13.7674 0.456785C13.7678 1.74801 13.7696 3.03924 13.7648 4.33047C13.7643 4.44996 13.8015 4.52369 13.8902 4.59787C14.5442 5.14421 15.1939 5.69588 15.8453 6.24578C16.1105 6.46964 16.1253 6.62288 15.9069 6.88806C15.7457 7.0835 15.5857 7.27983 15.4232 7.47438C15.2428 7.69025 15.0711 7.70535 14.8566 7.52368C12.6489 5.6528 10.4413 3.78147 8.2337 1.91014C8.16991 1.85595 8.10525 1.8022 8.0288 1.7378C7.77846 1.94923 7.5303 2.15844 7.28258 2.36853C5.25976 4.08351 3.23695 5.79849 1.21413 7.51302C0.983448 7.70846 0.815681 7.69469 0.624758 7.46194C0.415049 7.20654 0.207961 6.94847 0 6.69173C0 6.62821 0 6.5647 0 6.50074Z" fill="#004C8C"/>
+        <path d="M8.03247 2.62988C8.92505 3.37788 9.80408 4.11389 10.6831 4.85034C11.6709 5.67829 12.6574 6.50757 13.6479 7.33241C13.7387 7.40792 13.7711 7.48521 13.7711 7.60203C13.7676 9.15355 13.7693 10.7051 13.7685 12.2566C13.7685 12.7323 13.5089 12.9984 13.0419 12.9988C11.8505 13.0001 10.6586 12.9993 9.46723 12.9988C9.42136 12.9988 9.37548 12.9944 9.31213 12.9913C9.31213 11.7005 9.31213 10.4177 9.31213 9.1229C8.45626 9.1229 7.61786 9.1229 6.75718 9.1229C6.75718 10.407 6.75718 11.6934 6.75718 12.9913C6.68422 12.9944 6.63354 12.9988 6.58242 12.9988C5.39626 12.9993 4.20965 12.9997 3.02348 12.9988C2.54727 12.9984 2.29169 12.7345 2.29169 12.2455C2.29125 10.6993 2.293 9.1531 2.28907 7.60691C2.28863 7.48343 2.3262 7.40437 2.42057 7.3253C4.24111 5.80443 6.05859 4.27912 7.87694 2.75514C7.925 2.71517 7.97393 2.67697 8.03247 2.62988Z" fill="#004C8C"/>
+        </svg>
+      <li class="fw-bold">&#160;&#160;
+        <!-- <i class="fa-solid fa-house-chimney" style="margin-right: 10px; color: black;"></i> -->
+        
+          
+        <a routerLink="/set/">Home&#160;</a>
+        <i class="fa-solid fa-chevron-right"></i>
+      </li>
+      <li class="fw-bold"><a routerLink="/set/branch">&#160;Settings&#160;</a>
+        <i class="fa-solid fa-chevron-right"></i>
+      </li>
+      <li class="fw-bold"><a routerLink="/set/compliance">&#160;Compliance&#160;</a>
+        <i class="fa-solid fa-chevron-right"></i>
+      </li>
+      <li class="active fw-bold" aria-current="page"><a routerLink="/set/add-compliance" style="color: #3BB161 !important;" >&#160;Add Compliance</a></li>
+    </ol>
+  </nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <div class="page-header">
+                            <div class="col text-start">
+                            <h1>
+                                Compliance
+                            </h1>
+                        </div>
+                    
+                                <button type="button" routerLink="/set/compliance" class="btn btn-info" style="float: right;border-radius: 2rem;height: 28px;">View
+                                    Compliance</button>
+                    </div>
+                </div>
+              
+            </div>
+            </div>
+
+            <form [formGroup]="complianceForm" class="col-md-12 col-sm-12 col-xs-12 mt-3 pt-3">
+
+
+                <div class="form-group row mb-0 mb-lg-3">
+                    <div class="form-floating col-12 col-lg-5 mb-3 mb-lg-0 ">
+                    
+                    <!-- <div class="col-lg-4 col-8"> -->
+                        <input type="text" formControlName="complianceName" placeholder="complianceName" [(ngModel)]="compliance.complianceName" class="form-control" id="complianceName">
+                        <label for="complianceName" class="col-lg-2 col-4   col-form-label mb-3 mb-lg-0">Compliance Name:</label>
+                        <!-- </div> -->
+                    </div>
+                    <div class="form-floating col-12 col-lg-5 mb-3 mb-lg-0 ">
+                    
+                    <!-- <div class="col-lg-4 col-8"> -->
+                        <select formControlName="taxLink" [(ngModel)]="compliance.taxLink" class="form-select ">
+                            <option value="None" selected>None</option>
+                            <option *ngFor="let tax of taxData" [value]="tax.taxTypeName">{{ tax.taxTypeName }}
+                            </option>
+                        </select>
+                        <label for="taxLink" class="col-lg-1 col-4 col-form-label ml-2" >Tax Link  :</label>
+                    <!-- </div> -->
+                    </div>
+                </div>
+                <div class=" row  ">
+                    <div class="form-floating offset-lg-1 col-12 col-lg-5 mb-3 mb-lg-0 ">
+                   
+                    <!-- <div class="col-lg-4 col-8"> -->
+                        <input type="date" formControlName="complianceDueDate" placeholder="complianceDueDate" [(ngModel)]="compliance.complianceDueDate" class="form-control"
+                            id="complianceDueDate">
+                            <label for="complianceDueDate" class="col-lg-2 col-4 col-form-label mb-3 mb-lg-0">Compliance Due Date:</label>
+                    </div>
+                    <!-- </div> -->
+                </div>
+
+                <div class="text-center mt-3">
+                     <button type="button" class="col-3 btn  btn-info  m-lg-2 m-4" (click)="onSubmit()">
+                      Submit</button>
+                     <button type="reset" class="col-3 btn  btn-info m-lg-2 m-4">
+                            Reset   <i class="ace-icon fa fa-undo bigger-110"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <app-footer style="position:fixed;
+            bottom:0px; width:80%"></app-footer> -->
+              
+<app-footer style="position: absolute;right: 0;left: 0;bottom: 0;"></app-footer>
+    
+</html>
+
+
+
+<!-- 
+<div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb" >
+            <li class="breadcrumb-item">
+              <i class="ace-icon fa fa-home home-icon " style="margin-right: 10px;"></i><a href="#">Home</a>
+            </li>
+            <li class="breadcrumb-item"><a href="#">Settings</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Branch</li>
+          </ol>
+        </nav>
+        <div class="container ">
+          <div class="row">
+            <div class="col">
+              <div class="page-header">
+                <h1>
+                    Compliance
+                </h1>
+              </div>
+                           
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->

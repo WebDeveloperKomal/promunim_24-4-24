@@ -1,0 +1,711 @@
+<html style="position: relative;margin: 0;min-height: 100%;padding-bottom: 4.74rem;">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-white">
+      <svg width="17" height="13" viewBox="0 0 17 13" style="margin-right: 3px;margin-top: 10px; margin-left: 10px" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 6.50074C0.0655341 6.42034 0.12102 6.32751 0.19835 6.26177C2.52131 4.2905 4.84603 2.32145 7.17117 0.353291C7.72909 -0.118872 8.33069 -0.117539 8.88948 0.355956C9.61603 0.971589 10.3408 1.58944 11.0665 2.20596C11.1058 2.23928 11.1469 2.27081 11.2094 2.32101C11.2133 2.24727 11.2181 2.19797 11.2181 2.14822C11.2186 1.585 11.2177 1.02178 11.219 0.458561C11.2194 0.136087 11.323 0.0325933 11.6437 0.0321491C12.2134 0.0312607 12.7831 0.0312607 13.3528 0.0321491C13.6577 0.0330374 13.7674 0.145415 13.7674 0.456785C13.7678 1.74801 13.7696 3.03924 13.7648 4.33047C13.7643 4.44996 13.8015 4.52369 13.8902 4.59787C14.5442 5.14421 15.1939 5.69588 15.8453 6.24578C16.1105 6.46964 16.1253 6.62288 15.9069 6.88806C15.7457 7.0835 15.5857 7.27983 15.4232 7.47438C15.2428 7.69025 15.0711 7.70535 14.8566 7.52368C12.6489 5.6528 10.4413 3.78147 8.2337 1.91014C8.16991 1.85595 8.10525 1.8022 8.0288 1.7378C7.77846 1.94923 7.5303 2.15844 7.28258 2.36853C5.25976 4.08351 3.23695 5.79849 1.21413 7.51302C0.983448 7.70846 0.815681 7.69469 0.624758 7.46194C0.415049 7.20654 0.207961 6.94847 0 6.69173C0 6.62821 0 6.5647 0 6.50074Z" fill="#004C8C"/>
+        <path d="M8.03247 2.62988C8.92505 3.37788 9.80408 4.11389 10.6831 4.85034C11.6709 5.67829 12.6574 6.50757 13.6479 7.33241C13.7387 7.40792 13.7711 7.48521 13.7711 7.60203C13.7676 9.15355 13.7693 10.7051 13.7685 12.2566C13.7685 12.7323 13.5089 12.9984 13.0419 12.9988C11.8505 13.0001 10.6586 12.9993 9.46723 12.9988C9.42136 12.9988 9.37548 12.9944 9.31213 12.9913C9.31213 11.7005 9.31213 10.4177 9.31213 9.1229C8.45626 9.1229 7.61786 9.1229 6.75718 9.1229C6.75718 10.407 6.75718 11.6934 6.75718 12.9913C6.68422 12.9944 6.63354 12.9988 6.58242 12.9988C5.39626 12.9993 4.20965 12.9997 3.02348 12.9988C2.54727 12.9984 2.29169 12.7345 2.29169 12.2455C2.29125 10.6993 2.293 9.1531 2.28907 7.60691C2.28863 7.48343 2.3262 7.40437 2.42057 7.3253C4.24111 5.80443 6.05859 4.27912 7.87694 2.75514C7.925 2.71517 7.97393 2.67697 8.03247 2.62988Z" fill="#004C8C"/>
+        </svg>
+      <li class="fw-bold" style="font-size: 12px;margin-top: 5px;margin-bottom: 2px;">&#160;&#160;
+       <a routerLink="/set/">Home&#160;</a>
+        <i class="fa-solid fa-chevron-right"></i>
+      </li>
+     
+      <li class="active fw-bold" aria-current="page" style="font-size: 12px;margin-top: 5px;margin-bottom: 2px;"><a routerLink="/set/" style="color: #3BB161 !important;" >&#160;Dashboard</a></li>
+    </ol>
+  </nav>
+
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col">
+            <div class="row line">
+                <div class="col-md-6 col-6">
+                    <div class="active fw-bold" style="color: #3BB161;">
+                        <h1 style="font-size: 18px;">
+                            Dashboard
+                        </h1>
+                    </div>
+                </div>
+                <div class="col-md-6 col-6 text-md-end">
+                    <button type="button" routerLink="" class="btn dash" style="float: right;border-radius: 2rem;">
+                        <i class="ace-icon fa fa-cog bigger-110"></i>
+                        Set Dashboard
+                    </button>
+                </div>
+            </div>
+
+
+            <style>
+                @media(max-width:900px) {
+                    .test {
+                        margin-bottom: 15px !important;
+                    }
+                }
+            </style>
+            <div class="row">
+                <!-- <div class="col-xs-12"> -->
+
+                <div class="col-xl-3 col-md-6 col-sm-6 " >
+                    <div class="">
+                        <ul class="nav nav-tabs">
+                            <li [class.active]="activeTab === 'tab1'"><a (click)="changeTab('tab1')">Today</a>
+                            </li>
+                            <li [class.active]="activeTab === 'tab2'"><a (click)="changeTab('tab2')">Month</a>
+                            </li>
+                            <li [class.active]="activeTab === 'tab3'"><a (click)="changeTab('tab3')">Year</a>
+                            </li>
+                            <li [class.active]="activeTab === 'tab4'"><a (click)="changeTab('tab4')">All</a>
+                            </li>
+                        </ul>
+                        <div ng-if="true" class="ng-scope" >
+                            <div class="tab-content pay" style="background-color: #FFF;">
+                                <div class="tab-pane active pay10" [class.active]="activeTab === 'tab1'" id="tab1">
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h3 class="num">{{allCustCounts.todayCust}}</h3>
+                                            <p class="cust-port mt-3">Customer</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <h3 class="num">{{allCustCounts.portfolio}}</h3>
+                                            <p class="cust-port mt-3">Portfolio</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane pay10" [class.active]="activeTab === 'tab2'" id="tab2">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h3 class="num">{{allCustCounts.monthCust}}</h3>
+                                            <p class="cust-port mt-3">Customer</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <h3 class="num">{{allCustCounts.portfolio}}</h3>
+                                            <p class="cust-port mt-3">Portfolio</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane pay10" [class.active]="activeTab === 'tab3'" id="tab3">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h3 class="num">{{allCustCounts.yearCust}}</h3>
+                                            <p class="cust-port mt-3">Customer</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <h3 class="num">{{allCustCounts.portfolio}}</h3>
+                                            <p class="cust-port mt-3">Portfolio</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane pay10" [class.active]="activeTab === 'tab4'" id="tab4">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h3 class="num">{{allCustCounts.allCust}}</h3>
+                                            <p class="cust-port mt-3">Customer</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <h3 class="num">{{allCustCounts.portfolio}}</h3>
+                                            <p class="cust-port mt-3">Portfolio</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center mb-2 ">
+                                    <a class="info-tab" routerLink="/set/view-customer-details">More
+                                        Info <i class="fa fa-arrow-right" style="color: #3BB161;"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-md-6 col-sm-6 ">
+                    <div class="tabbable payment">
+                        <ul class="nav nav-tabs pay_tab">
+                            <li [class.active]="activeTab1 === 'tab5'"><a (click)="changeTab1('tab5')">Today</a>
+                            </li>
+                            <li [class.active]="activeTab1 === 'tab6'"><a (click)="changeTab1('tab6')">Month</a>
+                            </li>
+                            <li [class.active]="activeTab1 === 'tab7'"><a (click)="changeTab1('tab7')">Year</a>
+                            </li>
+                            <li [class.active]="activeTab1 === 'tab8'"><a (click)="changeTab1('tab8')">All</a>
+                            </li>
+                        </ul>
+
+                        <div ng-if="true" class="ng-scope">
+                            <div class="tab-content pay"  style="background-color: #FFF;">
+                                <div class="tab-pane active pay10" [class.active]="activeTab1 === 'tab5'" id="tab5">
+                                    <div class="cust-port mt-1 mb-1">Payments </div>
+                                    <!-- style="border-top: 1px solid #bbf0cc;" -->
+                                    <!-- payborder -->
+                                    <div 
+                                        class="cust-port ">Total R. V.
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{totalIPRenew.todayRenewal}}</div>
+                                    <div 
+                                        class="cust-port ">I. P. Collected
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{totalIPRenew.todayTotalIp}}</div>
+                                    <div 
+                                        class="cust-port ">Renewal Collection &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{totalPayInfo.todayTotal}}</div>
+
+                                </div>
+
+                                <div class="tab-pane pay10" [class.active]="activeTab1 === 'tab6'" id="tab6">
+                                    <div class="cust-port mt-1  mb-1">Payments </div>
+                                    <!-- style="border-top: 1px solid #bbf0cc;" -->
+                                    <div style="font-size: 15px;" class="cust-port " >Total R. V. :
+                                        {{totalIPRenew.monthRenewal}}</div>
+                                    <div style="font-size: 15px;" class="cust-port ">I. P. Collected :
+                                        {{totalIPRenew.monthTotalIp}}</div>
+                                    <div style="font-size: 15px;" class="cust-port ">Renewal Collection :
+                                        {{totalPayInfo.monthTotal}}</div>
+
+                                </div>
+
+                                <div class="tab-pane pay10" [class.active]="activeTab1 === 'tab7'" id="tab7">
+                                    <div class="cust-port mt-1  mb-1">Payments </div>
+                                    <!-- style="border-top: 1px solid #bbf0cc;" -->
+                                    <div style="font-size: 15px;" class="cust-port " >Total R. V. :
+                                        {{totalIPRenew.yearRenewal}}</div>
+                                    <div style="font-size: 15px;" class="cust-port ">I. P. Collected :
+                                        {{totalIPRenew.yearTotalIp}}</div>
+                                    <div style="font-size: 15px;" class="cust-port ">Renewal Collection :
+                                        {{totalPayInfo.yearTotal}}</div>
+
+                                </div>
+                                <div class="tab-pane pay10" [class.active]="activeTab1 === 'tab8'" id="tab8">
+                                    <div class="cust-port mt-1  mb-1">Payments </div>
+                                    <!-- style="border-top: 1px solid #bbf0cc;" -->
+                                    <div style="font-size: 15px;" class="cust-port " >Total R. V. :
+                                        {{totalIPRenew.allRenewal}}</div>
+                                    <div style="font-size: 15px;" class="cust-port ">I. P. Collected :
+                                        {{totalIPRenew.allTotalIp}}</div>
+                                    <div style="font-size: 15px;" class="cust-port ">Renewal Collection :
+                                        {{totalPayInfo.allTotal}}</div>
+
+                                </div>
+                                <div class="text-center mt-2 mb-2">
+                                    <a class="info-tab" routerLink="/set/alltransactions">More
+                                        Info <i class="fa fa-arrow-right" style="color: #3BB161;"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 col-sm-6 mt-xl-0 mt-3">
+                    <div class="tabbable new_customer">
+                        <!-- <ul class="nav nav-tabs"> -->
+                        <ul class="nav nav-tabs">
+                            <li [class.active]="activeTab2 === 'tab9'"><a (click)="changeTab2('tab9')">Today</a>
+                            </li>
+                            <li [class.active]="activeTab2 === 'tab10'"><a (click)="changeTab2('tab10')">Month</a>
+                            </li>
+                            <li [class.active]="activeTab2 === 'tab11'"><a (click)="changeTab2('tab11')">Year</a>
+                            </li>
+                            <li [class.active]="activeTab2 === 'tab12'"><a (click)="changeTab2('tab12')">All</a>
+                            </li>
+                        </ul>
+                        <!-- </ul> -->
+
+
+
+                        <div ng-if="true" class="ng-scope">
+                            <div class="tab-content pay "  style="background-color: #FFF;">
+                                <div class="tab-pane active pay10" [class.active]="activeTab2 === 'tab9'" id="tab9">
+                                    <h3 class="num">{{allTempCustcounts.todayTempCust}}</h3>
+                                    <p class="cust-port mt-3">New Customers</p>
+                                </div>
+
+                                <div class="tab-pane pay10" [class.active]="activeTab2 === 'tab10'" id="tab10">
+                                    <h3 class="num">{{allTempCustcounts.monthTempCust}}</h3>
+                                    <p class="cust-port mt-3">New Customers</p>
+                                </div>
+
+                                <div class="tab-pane pay10" [class.active]="activeTab2 === 'tab11'" id="tab11">
+                                    <h3 class="num">{{allTempCustcounts.yearTempCust}}</h3>
+                                    <p class="cust-port mt-3">New Customers</p>
+                                </div>
+                                <div class="tab-pane pay10" [class.active]="activeTab2 === 'tab12'" id="tab12">
+                                    <h3 class="num">{{allTempCustcounts.allTempCust}}</h3>
+                                    <p class="cust-port mt-3 ">New Customers</p>
+                                </div>
+                                <div class="text-center mt-2  mb-2">
+                                    <a class="info-tab" routerLink="/set/allnewcustomer">More
+                                        Info <i class="fa fa-arrow-right" style="color: #3BB161;"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-md-6 col-sm-6  test mt-xl-0 mt-3">
+                    <div class="tabbable new_customer">
+                        <!-- <ul class="nav nav-tabs newcust_tab"> -->
+
+                        <ul class="nav nav-tabs pay_tab">
+                            <li [class.active]="activeTab3 === 'tab13'"><a (click)="changeTab3('tab13')">Today</a>
+                            </li>
+                            <li [class.active]="activeTab3 === 'tab14'"><a (click)="changeTab3('tab14')">Month</a>
+                            </li>
+                            <li [class.active]="activeTab3 === 'tab15'"><a (click)="changeTab3('tab15')">Year</a>
+                            </li>
+                            <li [class.active]="activeTab3 === 'tab16'"><a (click)="changeTab3('tab16')">All</a>
+                            </li>
+                        </ul>
+                        <!-- </ul> -->
+
+                        <div ng-if="true" class="ng-scope">
+                            <div class="tab-content pay"  style="background-color: #FFF;">
+                                <div class="tab-pane active pay10" [class.active]="activeTab3 === 'tab13'" id="tab13">
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h3 class="num">{{allVisitLeadCounts.todayTotalVisit}}</h3>
+                                            <p class="cust-port mt-3">Total Visits</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <h3 class="num">{{allVisitLeadCounts.todayTotalLead}}</h3>
+                                            <p class="cust-port mt-3">Total Leads</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane pay10" [class.active]="activeTab3 === 'tab14'" id="tab14">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h3 class="num">{{allVisitLeadCounts.monthTotalVisit}}</h3>
+                                            <p class="cust-port mt-3">Total Visits</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <h3 class="num">{{allVisitLeadCounts.monthTotalLead}}</h3>
+                                            <p class="cust-port mt-3">Total Leads</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane pay10" [class.active]="activeTab3 === 'tab15'" id="tab15">
+
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h3 class="num">{{allVisitLeadCounts.yearTotalVisit}}</h3>
+                                            <p class="cust-port mt-3">Total Visits</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <h3 class="num">{{allVisitLeadCounts.yearTotalLead}}</h3>
+                                            <p class="cust-port mt-3">Total Leads</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane pay10" [class.active]="activeTab3 === 'tab16'" id="tab16">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h3 class="num">{{allVisitLeadCounts.allTotalVisit}}</h3>
+                                            <p class="cust-port mt-3">Total Visits</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <h3 class="num">{{allVisitLeadCounts.allTotalLead}}</h3>
+                                            <p class="cust-port mt-3">Total Leads</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center mb-2">
+                                    <a class="info-tab" routerLink="/set/customerslist">More
+                                        Info <i class="fa fa-arrow-right" style="color: #3BB161;"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- </div> -->
+            </div>
+
+
+
+            <div class="row" style="margin-top:10px;">
+                <!-- <div style="margin-top:10px;"> -->
+
+                <div class="col-sm-6">
+                    <!-- <div class="widget-box" ng-init="getNewsAlert()"> -->
+                        <div class="widget-header widget-header-small">
+                            <p class="widget-title smaller">
+                                <!-- <i class="ace-icon fa fa-bell-o"></i> -->
+                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M8.27558 15.3176C7.28551 14.3942 6.33776 13.4926 5.36564 12.6167C5.19892 12.4666 4.93473 12.3563 4.71158 12.3512C3.55863 12.3256 2.4044 12.341 1.25145 12.3384C0.479402 12.3371 0.136981 12.0126 0.135698 11.2573C0.131851 7.85998 0.131851 4.4627 0.135698 1.06542C0.136981 0.334406 0.479402 0.00224433 1.21811 0.000961858C5.92736 -0.000320619 10.6353 -0.000320619 15.3446 0.000961858C16.0666 0.000961858 16.4103 0.348513 16.4116 1.08081C16.4142 4.4627 16.4142 7.84331 16.4116 11.2252C16.4116 12.0139 16.0769 12.3371 15.2792 12.3384C14.1416 12.3397 13.0041 12.3243 11.8665 12.3512C11.6421 12.3563 11.3753 12.4628 11.2073 12.6128C10.2314 13.4862 9.27848 14.3865 8.27558 15.3176ZM12.7707 6.22354C12.7527 3.72784 10.7097 1.71563 8.21787 1.73872C5.76962 1.7618 3.72022 3.85609 3.76511 6.28638C3.81128 8.79619 5.83887 10.7789 8.32816 10.752C10.7995 10.7263 12.7886 8.69744 12.7707 6.22354Z"
+                                        fill="#3BB161" />
+                                    <path
+                                        d="M8.63211 5.50131C8.63211 6.17846 8.65392 6.85689 8.61672 7.53147C8.60775 7.69691 8.42435 7.96238 8.28456 7.98803C7.97292 8.04574 7.92675 7.77001 7.91649 7.51608C7.86135 6.17718 7.80876 4.83955 7.74336 3.50065C7.7254 3.13001 7.91521 2.96585 8.24352 2.96201C8.55645 2.95816 8.77832 3.07486 8.76549 3.4673C8.74241 4.14445 8.75908 4.82288 8.75908 5.50003C8.71804 5.50131 8.67572 5.50131 8.63211 5.50131Z"
+                                        fill="#3BB161" />
+                                    <path
+                                        d="M8.39987 8.42701C8.53196 8.62322 8.75127 8.8079 8.77692 9.01694C8.81796 9.34141 8.58583 9.53763 8.24084 9.52224C7.91381 9.50685 7.71887 9.28626 7.7753 8.99514C7.81634 8.7861 8.03821 8.61168 8.17928 8.42188C8.25238 8.42316 8.32548 8.42572 8.39987 8.42701Z"
+                                        fill="#3BB161" />
+                                </svg>&nbsp;&nbsp;
+
+                                Latest News Alert
+                            </p>
+                            <div class="widget-toolbar" style="float: right;">
+                                <a data-action="collapse" (click)="newsalert()">
+                                    <svg width="13" height="7" viewBox="0 0 13 7" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M11.1752 0.605243C9.62889 2.14893 8.08451 3.69452 6.49644 5.27993C5.14012 3.92399 3.81419 2.59459 2.48826 1.2671C2.14063 0.918153 1.8044 0.557832 1.43588 0.229751C1.06166 -0.10402 0.560161 -0.0641953 0.233428 0.284747C-0.0800076 0.618518 -0.0781079 1.07935 0.241026 1.45105C0.330308 1.55535 0.432886 1.65017 0.531666 1.74879C2.05705 3.27162 3.58244 4.79255 5.10592 6.31538C6.01584 7.22377 6.97514 7.22946 7.88125 6.32486C9.34205 4.8703 10.801 3.41195 12.2599 1.9555C12.4232 1.79241 12.5942 1.635 12.7462 1.46243C13.0881 1.07556 13.0824 0.599554 12.7424 0.26199C12.4023 -0.0755733 11.9236 -0.083159 11.5361 0.248715C11.4088 0.358708 11.2949 0.485769 11.1752 0.605243Z"
+                                            fill="#3BB161" />
+                                    </svg>
+
+
+                                </a>
+                            </div>
+                            <div class="widget-toolbar" style="float: right;">
+                                <a  data-action="reload" >
+                                    <!-- <i class="ace-icon fa fa-refresh"></i> -->
+
+                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" >
+                                        <path
+                                            d="M9.54034 0C10.0633 0.16035 10.1496 0.572326 10.1902 1.02624C10.2384 1.55663 10.307 2.08455 10.378 2.61247C10.439 3.06392 10.2004 3.40928 9.7358 3.49563C9.03518 3.62637 8.33455 3.75465 7.63392 3.8706C7.18206 3.94707 6.80382 3.68558 6.73528 3.2736C6.66421 2.85176 6.93075 2.50392 7.3826 2.42252C7.47907 2.40525 7.57807 2.38551 7.72023 2.35838C7.3496 2.10182 6.96883 1.95627 6.57282 1.85512C3.92769 1.17919 1.32825 3.26127 1.51864 5.91074C1.64303 7.63265 3.17375 9.33236 5.10302 9.50504C6.77082 9.65306 8.48686 8.78471 9.16718 7.38843C9.38549 6.93698 9.49211 6.46333 9.49465 5.96255C9.49718 5.52097 9.83227 5.19533 10.2562 5.19533C10.6877 5.19533 11.0025 5.51357 11 5.96501C11 6.1821 10.9924 6.40166 10.9619 6.61628C10.6547 8.76744 8.98187 10.3561 6.77336 10.8545C6.53474 10.9087 6.29104 10.9507 6.04989 11C5.69957 11 5.3518 11 5.00148 11C4.8974 10.9827 4.79332 10.963 4.68924 10.9457C1.70141 10.4819 -0.364934 7.75847 0.0539202 4.83517C0.493083 1.79345 3.76269 -0.335501 6.84444 0.411976C7.48414 0.567392 8.07562 0.821485 8.68486 1.19646C8.55032 0.641399 8.6544 0.222023 9.19003 0C9.3068 0 9.42357 0 9.54034 0Z"
+                                            fill="#3BB161" />
+                                    </svg>
+                                </a>
+                            </div>
+
+                        </div>
+
+                         <div class="widget-body" *ngIf="shownewsalert">
+                            <div class="widget-main">
+
+                                <div class="alertbox ng-scope" ng-repeat="na in newsAlertData">
+                                    <p class="alert alert-info"><a href="#" ng-click="" class="ng-binding">Revision
+                                            of Fees for Rural </a> &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                        <br><i class="ins-info ng-binding">Inserted By : SYSTEM ADMIN
+                                            &nbsp;&nbsp;&nbsp;&nbsp; Branch : Hadapsar
+                                            <br>Department : Support - ADMINISTRATIVE &nbsp;&nbsp;&nbsp;&nbsp;
+                                            Date : 2019-11-18
+                                        </i>
+                                    </p>
+
+                                </div>
+                                <div class="alertbox ng-scope" ng-repeat="na in newsAlertData">
+                                    <p class="alert alert-info"><a href="#" ng-click="viewAlertDis(na.newsAlertId)"
+                                            class="ng-binding">CRM
+                                            Updation. </a> &nbsp;&nbsp;&nbsp;&nbsp;
+
+                                        <br><i class="ins-info ng-binding" style="font-size: 10px;">Inserted By : SYSTEM ADMIN
+                                            &nbsp;&nbsp;&nbsp;&nbsp; Branch : Hadapsar
+                                            <br>Department : Support - ADMINISTRATIVE &nbsp;&nbsp;&nbsp;&nbsp;
+                                            Date : 2018-06-19
+                                        </i>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div> 
+                    <!-- </div> -->
+                </div>
+
+                <div class="col-sm-6">
+                    <!-- <div class="widget-box"> -->
+                        <div class="widget-header widget-header-small">
+                            <p class="widget-title smaller">
+                                <!-- <i class="ace-icon fa fa-comment blue"></i> -->
+                                <svg width="17" height="15" viewBox="0 0 17 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16.3221 4.63709C16.2454 4.98116 16.1332 5.30653 15.9125 5.59077C15.3946 6.25087 14.4783 6.49209 13.6892 6.17046C12.8888 5.84322 12.4213 5.02417 12.5316 4.14154C12.6326 3.32624 13.3077 2.64744 14.1305 2.5315C15.1739 2.3819 16.107 3.05509 16.294 4.09105C16.2978 4.11536 16.3127 4.1378 16.3239 4.16024C16.3221 4.31919 16.3221 4.47814 16.3221 4.63709Z"
+                                        fill="#3BB161" />
+                                    <path
+                                        d="M11.5149 7.40677C11.8365 6.96172 12.2647 6.71675 12.8089 6.75602C13.1287 6.77846 13.4447 6.86822 13.7626 6.93367C14.1272 7.00847 14.4937 7.06831 14.8509 7.16742C15.6195 7.38246 16.0533 8.01825 15.9261 8.81112C15.8027 9.57968 15.64 10.3464 15.4418 11.0981C15.2399 11.8629 14.5162 12.2706 13.7345 12.1191C13.5569 12.0854 13.3605 11.9845 13.2109 12.0312C13.0688 12.0761 12.9828 12.2818 12.8631 12.4089C12.1955 13.1233 11.3671 13.5721 10.4415 13.8488C8.83334 14.3313 7.2233 14.3051 5.63196 13.7759C4.78486 13.4935 4.02378 13.0578 3.41978 12.3828C3.34499 12.3005 3.27019 12.2145 3.21222 12.121C3.15051 12.0237 3.08132 12.0144 2.97473 12.0331C2.69985 12.078 2.41935 12.1453 2.14447 12.1341C1.48998 12.1079 0.971995 11.6198 0.829877 10.9466C0.6915 10.2865 0.551252 9.6283 0.416614 8.9682C0.263277 8.2146 0.536292 7.59003 1.19265 7.27587C1.44136 7.1562 1.72933 7.11319 2.00235 7.05335C2.46236 6.95237 2.92424 6.84952 3.38986 6.77472C3.9415 6.68496 4.38656 6.89627 4.73811 7.32075C4.76429 7.35254 4.79234 7.38433 4.81852 7.41612C5.14763 7.28148 5.46927 7.14872 5.80212 7.01221C5.80212 6.69805 5.80212 6.38016 5.80212 6.0604C5.80399 5.12728 6.41734 4.51206 7.34859 4.51019C7.89649 4.50832 8.44252 4.50832 8.99042 4.51019C9.90109 4.51393 10.5182 5.13289 10.5201 6.04357C10.5219 6.32967 10.5163 6.61765 10.5238 6.90375C10.5257 6.9505 10.5556 7.02156 10.5911 7.03652C10.8922 7.16368 11.197 7.28148 11.5149 7.40677ZM3.91533 11.8423C3.95646 11.891 3.98264 11.9227 4.01069 11.9545C4.43705 12.4089 4.9569 12.7231 5.52537 12.9568C6.49401 13.357 7.50379 13.4954 8.54724 13.4412C9.64117 13.3832 10.6734 13.1195 11.6102 12.5361C11.9076 12.351 12.175 12.1303 12.4125 11.8461C12.3433 11.8292 12.2965 11.8218 12.2516 11.8087C12.0534 11.7526 11.8421 11.7208 11.6607 11.631C11.0025 11.3075 10.722 10.6717 10.881 9.92375C11.0025 9.35341 11.1222 8.78307 11.24 8.21086C11.2493 8.16785 11.2381 8.08931 11.2119 8.07622C10.9913 7.96776 10.7669 7.87053 10.5201 7.75833C10.5201 7.90231 10.5219 8.0089 10.5201 8.11549C10.5014 8.89153 9.94971 9.5348 9.21295 9.56846C8.51358 9.60025 7.81047 9.59464 7.1111 9.57033C6.55198 9.54976 6.03587 9.12714 5.88627 8.58672C5.81708 8.33615 5.80773 8.07061 5.76846 7.79386C5.5609 7.88922 5.34211 7.98272 5.13081 8.09118C5.10089 8.10614 5.08032 8.18842 5.08967 8.23143C5.20186 8.79242 5.3178 9.35341 5.43748 9.9144C5.63757 10.8438 5.15137 11.5899 4.222 11.7788C4.12476 11.7956 4.02939 11.818 3.91533 11.8423Z"
+                                        fill="#3BB161" />
+                                    <path
+                                        d="M8.13002 0C9.18095 0 10.0374 0.856445 10.0374 1.90363C10.0374 2.95268 9.17908 3.80726 8.13002 3.80913C7.08097 3.80913 6.22453 2.95455 6.22266 1.9055C6.22266 0.858315 7.08097 0 8.13002 0Z"
+                                        fill="#3BB161" />
+                                    <path
+                                        d="M3.80977 4.47631C3.73871 5.55902 2.85796 6.37807 1.83882 6.31262C0.733673 6.24156 -0.0666737 5.3552 0.00438506 4.27623C0.0717039 3.23465 0.993598 2.43431 2.03704 2.50537C3.05617 2.57642 3.87522 3.4871 3.80977 4.47631Z"
+                                        fill="#3BB161" />
+                                </svg>&nbsp;&nbsp;
+
+                                Latest Customer Interaction
+                            </p>
+                            <div class="widget-toolbar" style="float: right;">
+                                <!-- ngIf: true --><a data-action="reload" ng-if="true"
+                                    (click)="allLatestInteractions()" class="ng-scope">
+                                    <!-- <i class="ace-icon fa fa-refresh"></i> -->
+                                    <svg width="13" height="7" viewBox="0 0 13 7" fill="none" (click)="customerIntraction()"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.1752 0.605243C9.62889 2.14893 8.08451 3.69452 6.49644 5.27993C5.14012 3.92399 3.81419 2.59459 2.48826 1.2671C2.14063 0.918153 1.8044 0.557832 1.43588 0.229751C1.06166 -0.10402 0.560161 -0.0641953 0.233428 0.284747C-0.0800076 0.618518 -0.0781079 1.07935 0.241026 1.45105C0.330308 1.55535 0.432886 1.65017 0.531666 1.74879C2.05705 3.27162 3.58244 4.79255 5.10592 6.31538C6.01584 7.22377 6.97514 7.22946 7.88125 6.32486C9.34205 4.8703 10.801 3.41195 12.2599 1.9555C12.4232 1.79241 12.5942 1.635 12.7462 1.46243C13.0881 1.07556 13.0824 0.599554 12.7424 0.26199C12.4023 -0.0755733 11.9236 -0.083159 11.5361 0.248715C11.4088 0.358708 11.2949 0.485769 11.1752 0.605243Z"
+                                        fill="#3BB161" />
+                                </svg>
+                                
+                                </a><!-- end ngIf: true -->
+                                <!-- ngIf: false -->
+                                </div>
+                                <div class="widget-toolbar" style="float: right;">
+                                <a data-action="collapse">
+                                    <!-- <i class="ace-icon fa fa-chevron-up"></i> -->
+                                    
+
+                                <svg width="11" height="11" viewBox="0 0 11 11" fill="none"  (click)="customerIntraction()"
+                                xmlns="http://www.w3.org/2000/svg" >
+                                <path
+                                    d="M9.54034 0C10.0633 0.16035 10.1496 0.572326 10.1902 1.02624C10.2384 1.55663 10.307 2.08455 10.378 2.61247C10.439 3.06392 10.2004 3.40928 9.7358 3.49563C9.03518 3.62637 8.33455 3.75465 7.63392 3.8706C7.18206 3.94707 6.80382 3.68558 6.73528 3.2736C6.66421 2.85176 6.93075 2.50392 7.3826 2.42252C7.47907 2.40525 7.57807 2.38551 7.72023 2.35838C7.3496 2.10182 6.96883 1.95627 6.57282 1.85512C3.92769 1.17919 1.32825 3.26127 1.51864 5.91074C1.64303 7.63265 3.17375 9.33236 5.10302 9.50504C6.77082 9.65306 8.48686 8.78471 9.16718 7.38843C9.38549 6.93698 9.49211 6.46333 9.49465 5.96255C9.49718 5.52097 9.83227 5.19533 10.2562 5.19533C10.6877 5.19533 11.0025 5.51357 11 5.96501C11 6.1821 10.9924 6.40166 10.9619 6.61628C10.6547 8.76744 8.98187 10.3561 6.77336 10.8545C6.53474 10.9087 6.29104 10.9507 6.04989 11C5.69957 11 5.3518 11 5.00148 11C4.8974 10.9827 4.79332 10.963 4.68924 10.9457C1.70141 10.4819 -0.364934 7.75847 0.0539202 4.83517C0.493083 1.79345 3.76269 -0.335501 6.84444 0.411976C7.48414 0.567392 8.07562 0.821485 8.68486 1.19646C8.55032 0.641399 8.6544 0.222023 9.19003 0C9.3068 0 9.42357 0 9.54034 0Z"
+                                    fill="#3BB161" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="widget-body"  *ngIf="showcustomerinteraction">
+                            <div class="widget-main">
+                                <!-- ngIf: true -->
+                                <div ng-if="true" ng-init="getAllLatestFollowUp1()" class="ng-scope">
+                                    <!-- ngRepeat: fu in followupData -->
+                                    <div *ngFor="let interaction of followUp"
+                                        class="alertbox alert alert-success ng-scope" ng-repeat="fu in followupData">
+                                        <div style="color:#184ca0;" class="ng-binding">{{interaction}}</div>
+                                        <div class="ng-binding"> </div>
+                                    </div><!-- end ngRepeat: fu in followupData -->
+
+
+                                </div><!-- end ngIf: true -->
+
+                                <!-- ngIf: false -->
+                            </div>
+                        </div><!-- /.widget-body -->
+                    <!-- </div> -->
+                    <!-- /.widget-box -->
+                    <!-- </div> -->
+                    <!-- /.col -->
+                    <!-- ---------Latest News Alert------------- -->
+                </div>
+            </div>
+
+
+
+            <div class="row" style="margin-top:15px;">
+                <!-- <div class="col-xs-12" > -->
+                    <div class="col-sm-6 widget-container-col" id="widget-container-col-10">
+                        <!-- <div class="widget-box" id="widget-box-10"> -->
+                            <div class="widget-header widget-header-small">
+                                <p class="widget-title smaller">
+                                    <!-- <i class="ace-icon fa fa-bell-o"></i> -->
+                                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="8.7868" cy="8.1618" r="7.68729" stroke="#3BB161"
+                                            stroke-width="0.949015" />
+                                        <path
+                                            d="M7.76473 13.5182C7.07792 13.4368 6.14859 13.3398 5.22446 13.2073C4.92999 13.1648 4.63898 13.0531 4.36529 12.9301C3.73391 12.646 3.59879 12.3403 3.7365 11.6552C3.92878 10.6982 4.23798 9.78963 4.86417 9.024C5.08069 8.75897 5.34572 8.53032 5.60468 8.3034C5.94939 8.00113 6.26465 7.91106 6.73927 8.19081C7.65301 8.73039 8.62044 8.65417 9.52465 8.09554C9.7533 7.95436 9.91266 7.94917 10.1422 8.08515C11.0542 8.62906 11.6232 9.44059 11.9792 10.4106C12.142 10.8541 12.2494 11.32 12.3507 11.7825C12.4677 12.3143 12.3585 12.6391 11.8553 12.8348C11.2326 13.0773 10.5709 13.2488 9.91093 13.3623C9.28993 13.4697 8.64902 13.4602 7.76473 13.5182Z"
+                                            fill="#3BB161" />
+                                        <path
+                                            d="M11.5436 6.7997C11.6432 6.61781 11.7411 6.43853 11.864 6.21421C11.6311 6.1813 11.4743 6.16744 11.321 6.13626C10.8204 6.03406 10.5363 5.76038 10.4991 5.25717C10.4627 4.76783 10.4653 4.27155 10.4982 3.78221C10.5277 3.34309 10.7927 3.05035 11.2205 2.92996C11.7982 2.76714 12.3811 2.76887 12.9631 2.90831C13.4282 3.02004 13.7236 3.31365 13.7582 3.79173C13.7929 4.26202 13.8084 4.74184 13.7599 5.20954C13.6941 5.84525 13.3685 6.10941 12.731 6.17784C12.6176 6.18996 12.4902 6.25925 12.4088 6.34153C12.1611 6.5927 11.8857 6.76938 11.5436 6.7997ZM12.3248 4.02558C12.3248 3.90866 12.3473 3.78047 12.317 3.66615C12.2954 3.5856 12.2018 3.52411 12.1412 3.45395C12.0667 3.52497 11.929 3.59513 11.929 3.66615C11.9281 4.02385 11.9567 4.38155 11.9896 4.73751C11.9948 4.79381 12.0762 4.84318 12.1221 4.89601C12.1663 4.84231 12.2399 4.79294 12.2495 4.73405C12.285 4.50107 12.3006 4.26549 12.3248 4.02558ZM12.1265 5.65904C12.2261 5.51267 12.3291 5.42606 12.3153 5.36803C12.2954 5.28489 12.1966 5.18529 12.1152 5.1671C12.0658 5.15584 11.9342 5.28229 11.9307 5.35071C11.9273 5.42866 12.026 5.51094 12.1265 5.65904Z"
+                                            fill="#3BB161" />
+                                        <path
+                                            d="M5.82843 5.66616C5.84835 4.42417 6.8409 3.47146 8.08895 3.49658C9.30408 3.52083 10.2681 4.51078 10.2585 5.72505C10.249 6.94712 9.2322 7.9414 8.00753 7.92668C6.77767 7.91195 5.80851 6.90641 5.82843 5.66616Z"
+                                            fill="#3BB161" />
+                                    </svg>&nbsp;&nbsp;
+
+                                    Lead Notification
+                                </p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="tool">
+                                    <ul class="nav" id="" style="background-color: #FFF;color: black;">
+                                <li [class.active]="activeTab4 === 'tab17'"><a
+                                    (click)="changeTab4('tab17')">Day</a>
+                            </li>&nbsp;&nbsp;
+                            <li [class.active]="activeTab4 === 'tab18'"><a
+                                    (click)="changeTab4('tab18')">Month</a>
+                            </li> 
+</ul>
+</div>
+                                <div class="widget-toolbar" style="float: right;">
+                                    <!-- ngIf: true --><a data-action="reload" ng-if="true"
+                                    (click)="leadNotifications()" class="ng-scope">
+                                        <!-- <i class="ace-icon fa fa-refresh"></i> -->
+                                        <svg width="13" height="7" viewBox="0 0 13 7" fill="none" (click)="leadnotification()"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M11.1752 0.605243C9.62889 2.14893 8.08451 3.69452 6.49644 5.27993C5.14012 3.92399 3.81419 2.59459 2.48826 1.2671C2.14063 0.918153 1.8044 0.557832 1.43588 0.229751C1.06166 -0.10402 0.560161 -0.0641953 0.233428 0.284747C-0.0800076 0.618518 -0.0781079 1.07935 0.241026 1.45105C0.330308 1.55535 0.432886 1.65017 0.531666 1.74879C2.05705 3.27162 3.58244 4.79255 5.10592 6.31538C6.01584 7.22377 6.97514 7.22946 7.88125 6.32486C9.34205 4.8703 10.801 3.41195 12.2599 1.9555C12.4232 1.79241 12.5942 1.635 12.7462 1.46243C13.0881 1.07556 13.0824 0.599554 12.7424 0.26199C12.4023 -0.0755733 11.9236 -0.083159 11.5361 0.248715C11.4088 0.358708 11.2949 0.485769 11.1752 0.605243Z"
+                                            fill="#3BB161" />
+                                    </svg>
+                                    
+                                    </a><!-- end ngIf: true -->
+                                    <!-- ngIf: false -->
+                                    </div>
+                                    <div class="widget-toolbar" style="float: right;">
+                                    <a data-action="collapse">
+                                        <!-- <i class="ace-icon fa fa-chevron-up"></i> -->
+                                        
+    
+                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none" (click)="leadnotification()"
+                                    xmlns="http://www.w3.org/2000/svg" >
+                                    <path
+                                        d="M9.54034 0C10.0633 0.16035 10.1496 0.572326 10.1902 1.02624C10.2384 1.55663 10.307 2.08455 10.378 2.61247C10.439 3.06392 10.2004 3.40928 9.7358 3.49563C9.03518 3.62637 8.33455 3.75465 7.63392 3.8706C7.18206 3.94707 6.80382 3.68558 6.73528 3.2736C6.66421 2.85176 6.93075 2.50392 7.3826 2.42252C7.47907 2.40525 7.57807 2.38551 7.72023 2.35838C7.3496 2.10182 6.96883 1.95627 6.57282 1.85512C3.92769 1.17919 1.32825 3.26127 1.51864 5.91074C1.64303 7.63265 3.17375 9.33236 5.10302 9.50504C6.77082 9.65306 8.48686 8.78471 9.16718 7.38843C9.38549 6.93698 9.49211 6.46333 9.49465 5.96255C9.49718 5.52097 9.83227 5.19533 10.2562 5.19533C10.6877 5.19533 11.0025 5.51357 11 5.96501C11 6.1821 10.9924 6.40166 10.9619 6.61628C10.6547 8.76744 8.98187 10.3561 6.77336 10.8545C6.53474 10.9087 6.29104 10.9507 6.04989 11C5.69957 11 5.3518 11 5.00148 11C4.8974 10.9827 4.79332 10.963 4.68924 10.9457C1.70141 10.4819 -0.364934 7.75847 0.0539202 4.83517C0.493083 1.79345 3.76269 -0.335501 6.84444 0.411976C7.48414 0.567392 8.07562 0.821485 8.68486 1.19646C8.55032 0.641399 8.6544 0.222023 9.19003 0C9.3068 0 9.42357 0 9.54034 0Z"
+                                        fill="#3BB161" />
+                                        </svg>
+                                    </a>
+                                </div>
+                                <!-- <div class="widget-toolbar no-border" style="float: right;">
+                                    <ul class="nav nav-tabs" id="myTab">
+
+                                        <li [class.active]="activeTab4 === 'tab17'"><a
+                                                (click)="changeTab4('tab17')">Today</a>
+                                        </li>
+                                        <li [class.active]="activeTab4 === 'tab18'"><a
+                                                (click)="changeTab4('tab18')">Month</a>
+                                        </li> -->
+
+                                        <!-- <li ng-if="true" class="ng-scope">
+                                            <a data-action="reload" (click)="leadNotifications()"
+                                                style="padding: 2px 0px 5px 8px; color: #ACD392; border-left: 1px solid #D9D9D9;">
+                                               
+                                                <svg width="13" height="7" viewBox="0 0 13 7" fill="none" (click)="customerIntraction()"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11.1752 0.605243C9.62889 2.14893 8.08451 3.69452 6.49644 5.27993C5.14012 3.92399 3.81419 2.59459 2.48826 1.2671C2.14063 0.918153 1.8044 0.557832 1.43588 0.229751C1.06166 -0.10402 0.560161 -0.0641953 0.233428 0.284747C-0.0800076 0.618518 -0.0781079 1.07935 0.241026 1.45105C0.330308 1.55535 0.432886 1.65017 0.531666 1.74879C2.05705 3.27162 3.58244 4.79255 5.10592 6.31538C6.01584 7.22377 6.97514 7.22946 7.88125 6.32486C9.34205 4.8703 10.801 3.41195 12.2599 1.9555C12.4232 1.79241 12.5942 1.635 12.7462 1.46243C13.0881 1.07556 13.0824 0.599554 12.7424 0.26199C12.4023 -0.0755733 11.9236 -0.083159 11.5361 0.248715C11.4088 0.358708 11.2949 0.485769 11.1752 0.605243Z"
+                                                    fill="#3BB161" />
+                                                    </svg>
+                                            </a>
+                                        </li>
+
+                                        <li><a data-action="collapse" style="padding: 0px 0px 0px;">
+                                              
+                                                <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg" >
+                                                <path
+                                                    d="M9.54034 0C10.0633 0.16035 10.1496 0.572326 10.1902 1.02624C10.2384 1.55663 10.307 2.08455 10.378 2.61247C10.439 3.06392 10.2004 3.40928 9.7358 3.49563C9.03518 3.62637 8.33455 3.75465 7.63392 3.8706C7.18206 3.94707 6.80382 3.68558 6.73528 3.2736C6.66421 2.85176 6.93075 2.50392 7.3826 2.42252C7.47907 2.40525 7.57807 2.38551 7.72023 2.35838C7.3496 2.10182 6.96883 1.95627 6.57282 1.85512C3.92769 1.17919 1.32825 3.26127 1.51864 5.91074C1.64303 7.63265 3.17375 9.33236 5.10302 9.50504C6.77082 9.65306 8.48686 8.78471 9.16718 7.38843C9.38549 6.93698 9.49211 6.46333 9.49465 5.96255C9.49718 5.52097 9.83227 5.19533 10.2562 5.19533C10.6877 5.19533 11.0025 5.51357 11 5.96501C11 6.1821 10.9924 6.40166 10.9619 6.61628C10.6547 8.76744 8.98187 10.3561 6.77336 10.8545C6.53474 10.9087 6.29104 10.9507 6.04989 11C5.69957 11 5.3518 11 5.00148 11C4.8974 10.9827 4.79332 10.963 4.68924 10.9457C1.70141 10.4819 -0.364934 7.75847 0.0539202 4.83517C0.493083 1.79345 3.76269 -0.335501 6.84444 0.411976C7.48414 0.567392 8.07562 0.821485 8.68486 1.19646C8.55032 0.641399 8.6544 0.222023 9.19003 0C9.3068 0 9.42357 0 9.54034 0Z"
+                                                    fill="#3BB161" />
+                                                    </svg>
+                                            </a>
+                                        </li> -->
+                                    <!-- </ul> -->
+                                <!-- </div> -->
+
+
+                            </div>
+
+                            <div class="widget-body" *ngIf="showleadnotification">
+                                <div class="widget-main">
+
+                                    <div ng-if="true" class="ng-scope">
+                                        <div>
+                                            <div id="lead_notif_today" class="tab-pane in active">
+
+
+                                                <div id="lead_notif_month" class="tab-pane">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </div>
+                <!-- </div> -->
+
+
+                <div id="showNewsAlertSeenModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+                                <h4 class="modal-title">
+                                    <b>News Alert Seen By</b>
+                                </h4>
+                            </div>
+                            <div class="modal-body" style="max-height:480px; overflow-y:scroll;">
+                                <!-- ngRepeat: nas in newsAlertSeenData -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="showNewsAlertModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+                                <h4 class="modal-title">
+                                    <b>News Alert</b>
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="ng-binding">
+                                    <b>Date :&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                                </div>
+
+                                <div style="margin-top: 15px; margin-bottom: 15px;" class="ng-binding">
+                                    <b>Subject :&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                                </div>
+
+                                <div class="ng-binding">
+                                    <b>Description :&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <div class="row">
+                                    <div class="col-lg-3"></div>
+
+                                    <div class="col-lg-3">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="setDashboardModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+                                <h4 class="modal-title">
+                                    <b>Set Dashboard</b>
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- ngRepeat: itm in dashboardItemsData -->
+                            </div>
+
+                            <div class="modal-footer">
+                                <div class="row">
+                                    <div class="col-lg-3"></div>
+                                    <div class="col-lg-3">
+                                        <button class="btn btn-default" type="button" ng-click="saveDashboardItems()">
+                                            Update
+                                        </button>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <app-footer style="position: absolute;right: 0;left: 0;bottom: 0;"></app-footer>
+    
+    </html>
+    <!-- <app-footer style="position:fixed;
+            bottom:0px; width:80%"></app-footer> -->
