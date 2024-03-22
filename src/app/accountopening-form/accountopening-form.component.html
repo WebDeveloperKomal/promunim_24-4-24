@@ -373,18 +373,17 @@
                                                         <div class="col-md-12 col-lg-6 col-xl-6 col-12">
 
                                                             <div class="form-floating  mb-2 col-md-12">
-                                                                <select style="border-radius: 10px;"
+                                                                <select style="border-radius: 10px;" formControlName="billingCycle"
                                                                     aria-label="Floating label select example"
                                                                     id="as1gender" class="form-select">
                                                                     <option selected>Select</option>
-                                                                    <option id="" value="">Monthly</option>
-                                                                    <option id="" value="">Quarterly</option>
-                                                                    <option id="" value="">Half Yearly</option>
-                                                                    <option id="" value="">Yearly</option>
+                                                                    <option id="" value="Monthly">Monthly</option>
+                                                                    <option id="" value="Quarterly">Quarterly</option>
+                                                                    <option id="" value="Half Yearly">Half Yearly</option>
+                                                                    <option id="" value="Yearly">Yearly</option>
                                                                 </select>
                                                                 <label for="tempCustdorordob"
-                                                                    class="col-lg-2 col-4   col-form-label mr-5">Billing
-                                                                    Cycle<span class="required">*</span> </label>
+                                                                    class="col-lg-2 col-4   col-form-label mr-5">Billing Cycle<span class="required">*</span> </label>
                                                             </div>
                                                         </div>
 
@@ -4518,7 +4517,7 @@
                                                         <div class="text-center mt-1 align-middle">
                                                             <button class="btn-info btn  m-lg-4 m-4 w-25"
                                                                 style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px; "
-                                                                type="submit" (click)="onsubmit2(); changeTab('tab4')">
+                                                                type="submit" (click)="performFinishActions()">
                                                                 Finish
                                                             </button>
 

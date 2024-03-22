@@ -26,6 +26,7 @@ export class AccountopeningFormComponent {
   step6 !: FormGroup;
   step61 !: FormGroup;
   step62 !: FormGroup;
+  savepro !: FormGroup;
 
   industry_sector_id : boolean = false
 
@@ -126,6 +127,7 @@ export class AccountopeningFormComponent {
     this.step3 = this.formBuilder.group({
       rdobdate: ['', Validators.required],
       industry_sector_id: ['', Validators.required],
+      billingCycle : ['', Validators.required],
       // industry_sector_name: "Individual",
       industry_sector_name: ['', Validators.required],
       operationMode: ['', Validators.required],
@@ -141,6 +143,15 @@ export class AccountopeningFormComponent {
       address: ['', Validators.required],
     })
 
+    
+
+    this.savepro = this.formBuilder.group({
+      tid: ['', Validators.required],
+      billingCycle: ['', Validators.required],
+      assignDate: '2021-02-12',
+      productId: ['', Validators.required]
+    })
+
     this.step3.get('industry_sector_id')?.valueChanges.subscribe((value) => {
       // Find the selected document category object
       const selectedDoc = this.docCategoryList.find(doc => doc.cid === value);
@@ -151,7 +162,6 @@ export class AccountopeningFormComponent {
       }
     });
 
-    
 
       this.step21 = this.formBuilder.group({
         tid: ['', Validators.required],
@@ -395,9 +405,14 @@ export class AccountopeningFormComponent {
         localStorage.setItem('aofnumber', response.aofnumber);
         localStorage.setItem('tid', response.tid);
        console.log('tid', response.tid);
-        console.log('Updated tid.......', response.industry_sector_id);
+        // console.log('Updated tid.......', response.industry_sector_id);
         localStorage.setItem('inCid',this.step3.value.industry_sector_id);
         localStorage.setItem('inName',this.step3.value.industry_sector_name);
+        localStorage.setItem('productId',this.step3.value.productId);
+        localStorage.setItem('billingCycle',this.step3.value.billingCycle);
+        
+        // console.log('####################@@@@@@@@@@@@@@@',this.step3.value.productId)
+        // console.log('####################@@@@@@@@@@@@@@@', localStorage.getItem('productId '))
 
         Swal.fire({
           icon: 'success',
@@ -556,8 +571,24 @@ export class AccountopeningFormComponent {
         });
       }
     );
-    this.tidToSearch();
+    
   }
+
+  savePro() {
+    this.savepro.value.tid = localStorage.getItem("tid");
+    this.savepro.value.billingCycle = localStorage.getItem("billingCycle");
+    this.savepro.value.productId = localStorage.getItem("productId");
+    console.log("savePro values: ", this.savepro.value); // Log the values being sent in the request
+    this.apiservice.savePro(this.savepro.value).subscribe(
+      (response: any) => {
+        console.log("savePro response: ", response); // Log the response received from the server
+      },
+      (error: any) => {
+        console.error("Error in savePro: ", error); // Log any errors that occur during the request
+      }
+    );
+  }
+  
 
 
   bankDetails() {
@@ -587,6 +618,11 @@ export class AccountopeningFormComponent {
     );
   }
 
+  performFinishActions() {
+    this.onsubmit2();
+    this.savePro();
+    this.changeTab('tab4');
+}
 
 
 

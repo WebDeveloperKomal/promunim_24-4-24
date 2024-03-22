@@ -6,10 +6,10 @@ import{HttpClient} from '@angular/common/http'
 export class ApiService {
   
     
-  baseUrl="https://clientportal.promunim.com/auth";
-  baseUrl1="https://clientportal.promunim.com/send";
-  // baseUrl="http://localhost:8181/auth"; 
-  // baseUrl1="http://localhost:8181/send"; 
+  // baseUrl="https://clientportal.promunim.com/auth";
+  // baseUrl1="https://clientportal.promunim.com/send";
+  baseUrl="http://localhost:8181/auth"; 
+  baseUrl1="http://localhost:8181/send"; 
   
   constructor(private http : HttpClient) { }
 
@@ -502,6 +502,11 @@ export class ApiService {
    bankDetails(bnkdetails :any): any { //Running
      return this.http.post(`${this.baseUrl1}/save-new-user-bank-details-old`,bnkdetails)
    }
+
+   
+   savePro(savePro :any): any { //Running
+    return this.http.post(`${this.baseUrl1}/save-customer-pro`,savePro)
+  }
 
    getDoc(doc :any , docImage : File):any{
     const formdata: FormData = new FormData();

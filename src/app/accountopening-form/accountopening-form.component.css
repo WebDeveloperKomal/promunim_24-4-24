@@ -145,7 +145,7 @@ label{
 .wizard_horizontal ul.wizard_steps li a, .wizard_horizontal ul.wizard_steps {
     /* display: block; */
     position: relative;
- 
+    margin-left: -5%;
     /* opacity: 1; */
     /* color: #004C8C; */
 }
@@ -208,8 +208,8 @@ label{
     position: absolute;
     height: 5px;
     background: #3BB161;
-    top: 20px;
-    width: 180px;
+    top: 44px;
+    width: 360px;
     z-index: 4;
     left: 10px;
 }
