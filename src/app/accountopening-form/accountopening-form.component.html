@@ -76,10 +76,20 @@
                                 <li [class.active]="activeTab === 'tab4'"><a (click)="changeTab('tab4')"> <span
                                             class="step_no" style="font-size: 12px; ">Step<p style="margin-top: -25px;">
                                                 4</p></span>
-                                        <span class="step_descr "> <small>Bank Details</small></span>
+                                        <span class="step_descr"> <small>Bank Details</small></span>
                                     </a>
                                 </li>
 
+
+                                <!-- <li [class.active]="activeTab === 'tab4'"><a (click)="changeTab('tab4')"><span
+                                    class="step_no" id="step_no1" style="font-size: 12px;">Step <p
+                                        style="margin-top: -25px;">4</p></span>
+                                <span class="step_descr"> <small>
+                                        Bank Details</small>
+                                </span>
+                            </a></li> -->
+
+                            
                                 <!-- style="display: none;" -->
                                 <li [class.active]="activeTab === 'tab6'" style="display: none;"><a
                                         (click)="changeTab('tab6')"><span class="step_no" id="step_no1"
@@ -158,7 +168,7 @@
                                                     </div>
                                                     <br>
                                                     <!-- <hr class="col-8 offset-lg-2"> -->
-                                                    <div
+                                                    <div class="mb-4"
                                                         style="border: solid 1px rgb(54, 50, 50); border-radius: 20px;">
                                                         <div class="form-group row">
                                                             <div class="col-md-12 col-lg-6 col-xl-6 col-12 offset-lg-3">
@@ -193,16 +203,15 @@
                                                         </div>
                                                     </div>
 
-                                                    <hr class="col-8 offset-lg-2">
+                                                    <!-- <hr class="col-8 offset-lg-2"> -->
 
 
 
                                                 </div>
                                             </form>
 
-                                            <form [formGroup]="step3">
-                                                <div
-                                                style="background-color: #fff; margin-top: 10px; padding: 10px 80px; border-radius: 6px;">
+                                            <form [formGroup]="step3" class="form-horizontal form-label-left ng-pristine ng-invalid ng-invalid-required m-4">
+                                                <div style="background-color: #fff; margin-top: 10px; padding: 10px 80px; border-radius: 6px;">
                                                 
                                                     <p class="h2_form text-center mt-3"
                                                         style="color: #3BB161; font-size: 18px;">
@@ -329,7 +338,7 @@
                                                         <div class="col-md-12 col-lg-6 col-xl-6 col-12">
 
                                                             <div class="form-floating  mb-2 col-md-12">
-                                                                <input type="date" placeholder=""
+                                                                <input type="date" placeholder="" formControlName="AccWorkStartDate"
                                                                     style="border-radius: 10px;" class="form-control"
                                                                     id="complianceDueDate">
                                                                 <label for="tempCustdorordob"
@@ -406,7 +415,7 @@
                                                         <div class="col-md-12 col-lg-6 col-xl-6 col-12">
 
                                                             <div class="form-floating  mb-2 col-md-12">
-                                                                <input type="text" placeholder=""
+                                                                <input type="text" placeholder="" formControlName="state"
                                                                     style="border-radius: 10px;" class="form-control"
                                                                     id="complianceDueDate">
                                                                 <label for="tempCustdorordob"
@@ -419,7 +428,7 @@
                                                         <div class="col-md-12 col-lg-6 col-xl-6 col-12">
 
                                                             <div class="form-floating  mb-2 col-md-12">
-                                                                <input type="text" placeholder=""
+                                                                <input type="text" placeholder="" formControlName="district"
                                                                     style="border-radius: 10px;" class="form-control"
                                                                     id="complianceDueDate">
                                                                 <label for="tempCustdorordob"
@@ -442,7 +451,7 @@
                                                         <div class="col-md-12 col-lg-6 col-xl-6 col-12">
 
                                                             <div class="form-floating  mb-2 col-md-12">
-                                                                <input type="text" placeholder=""
+                                                                <input type="text" placeholder="" formControlName="pin"
                                                                     style="border-radius: 10px;" class="form-control"
                                                                     id="complianceDueDate">
                                                                 <label for="tempCustdorordob"
@@ -4945,7 +4954,7 @@
                                                                     id="complianceDueDate">
                                                                 <label for="tempCustdorordob"
                                                                     class="col-lg-2 col-4   col-form-label mr-5">IFSC
-                                                                    COde<span class="required">*</span> </label>
+                                                                    Code<span class="required">*</span> </label>
                                                             </div>
                                                         </div>
 

@@ -5,7 +5,6 @@ import{HttpClient} from '@angular/common/http'
 })
 export class ApiService {
   
-    
   // baseUrl="https://clientportal.promunim.com/auth";
   // baseUrl1="https://clientportal.promunim.com/send";
   baseUrl="http://localhost:8181/auth"; 

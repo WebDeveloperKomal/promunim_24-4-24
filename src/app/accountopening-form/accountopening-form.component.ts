@@ -130,6 +130,10 @@ export class AccountopeningFormComponent {
       billingCycle : ['', Validators.required],
       // industry_sector_name: "Individual",
       industry_sector_name: ['', Validators.required],
+      AccWorkStartDate : ['', Validators.required],
+      state : ['', Validators.required],
+      pin : ['', Validators.required],
+      district : ['', Validators.required],
       operationMode: ['', Validators.required],
       accFreqStatement: ['', Validators.required],
       branch_id: 140,
@@ -637,6 +641,8 @@ this.formstep2  == !this.formstep2
     this.nonindividual = false;
     this.selfemployee = false;
   }
+
+  
   show2() {
     this.individual = false;
     this.nonindividual = true;

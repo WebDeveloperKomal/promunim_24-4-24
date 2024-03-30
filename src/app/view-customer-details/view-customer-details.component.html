@@ -952,14 +952,13 @@
                                                                                             (click)="onchange($event)"
                                                                                             formControlName="customerDocumentCategoryId"
                                                                                             class="form-select">
-                                                                                            <option value=""> Select
-                                                                                                Product </option>
-                                                                                            <option
-                                                                                                ng-repeat="d in documentCategory"
-                                                                                                *ngFor="let doc of docCategoryList"
-                                                                                                value="{{doc.cid}}">
-                                                                                                {{doc.name}}
+                                                                                            <option value="" selected="">Select Product
                                                                                             </option>
+                                                                                            <option ng-repeat="item in productData"
+                                                                                                *ngFor="let data of productList1"
+                                                                                                [value]="data.productId"
+                                                                                                class="ng-binding ng-scope">
+                                                                                                {{data.productName}}</option>
 
                                                                                         </select>
                                                                                         <label
@@ -2902,17 +2901,13 @@
                                                                                                                 (click)="onchange($event)"
                                                                                                                 formControlName="customerDocumentCategoryId"
                                                                                                                 class="form-select">
-                                                                                                                <option
-                                                                                                                    value="">
-                                                                                                                    Select
-                                                                                                                    Product
+                                                                                                                <option value="" selected="">Select Product
                                                                                                                 </option>
-                                                                                                                <option
-                                                                                                                    ng-repeat="d in documentCategory"
-                                                                                                                    *ngFor="let doc of docCategoryList"
-                                                                                                                    value="{{doc.cid}}">
-                                                                                                                    {{doc.name}}
-                                                                                                                </option>
+                                                                                                                <option ng-repeat="item in productData"
+                                                                                                                    *ngFor="let data of productList1"
+                                                                                                                    [value]="data.productId"
+                                                                                                                    class="ng-binding ng-scope">
+                                                                                                                    {{data.productName}}</option>
 
                                                                                                             </select>
                                                                                                             <label
@@ -5072,10 +5067,7 @@
                                                                 <i class="fa-solid fa-pen-to-square fa-lg"
                                                                     style=" color: #3BB161;"></i>
                                                             </button>&nbsp;
-                                                            <!-- <button type="button" class="btn btn-info btn btn" data-bs-toggle="modal"
-                                                            data-bs-target="#exampleModal3">
-                                                            Add Account Writting
-                                                        </button> -->
+
                                                             <div class="modal fade" id="updateaccwriting" tabindex="-1"
                                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog">
@@ -5095,17 +5087,14 @@
                                                                             <form
                                                                                 class=" col-md-12 col-sm-12 col-xs-12 mt-2"
                                                                                 [formGroup]="updateaccountwriting">
-                                                                                <!-- [formGroup]="employeeForm1" -->
                                                                                 <div class="container"
                                                                                     style="padding-left:10%">
                                                                                     <div class="form-group row mb-1">
 
                                                                                         <div
                                                                                             class="form-floating  col-lg-10 col-md-10 col-10">
-                                                                                            <input type="date"
-                                                                                                style="width:360px"
-                                                                                                placeholder=""
-                                                                                                formControlName="fromDate"
+                                                                                            <input type="date" style="width:360px" placeholder=""
+                                                                                             formControlName="fromDate"
                                                                                                 class="form-control">
                                                                                             <label
                                                                                                 class="col-lg-4 col-4 control-label"
@@ -5379,9 +5368,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-
 
 
                                         <h6 style="font-size: 12px; color:#004C8C">INCOME TAX</h6>
