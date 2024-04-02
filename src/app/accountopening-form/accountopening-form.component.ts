@@ -335,7 +335,7 @@ export class AccountopeningFormComponent {
 
     // );
 
-    this.apiservice.productlist1().subscribe(  //AOF6
+    this.apiservice.productlist().subscribe(  //AOF6
       (data: any) => {
         this.productList = data.data;
         localStorage.setItem('branchId', data.data[0].branchId)

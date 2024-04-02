@@ -193,6 +193,8 @@ export class ViewCustomerDetailsComponent {
     productName: ''
   }];
 
+  
+
   URL: any;
   photo!: File;
   sign!: File;
