@@ -90,7 +90,7 @@ export class AddEmployeeComponent {
     console.log(this.newEmployee,this.empPhoto);
     this.service.addEmployee(this.newEmployee,this.empPhoto).subscribe(
       (res:any)=>{
-        console.log(res);
+        console.log("%%%%%%%%%%%$$$$$$$$$$$$$###################",this.newEmployee,this.empPhoto);
         Swal.fire({
           title: "Record Saved!",
           icon: "success"

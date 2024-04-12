@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { AofTwomodel } from './aofmodel2';
 import { BranchModel } from '../branch/branch.component.model';
 import { TidService } from '../tid.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -17,6 +18,8 @@ export class AccountopeningFormComponent {
   step1 !: FormGroup;
   step2 !: FormGroup;
   step21 !: FormGroup;
+  aadhar !: FormGroup;
+  pan !: FormGroup;
   step3 !: FormGroup;
   step31 !: FormGroup;
   step33 !: FormGroup;
@@ -112,8 +115,9 @@ export class AccountopeningFormComponent {
     productName: ''
   }];
 
+  getAllBranch: any[] = [];
 
-  constructor(private formBuilder: FormBuilder, private apiservice: ApiService, private sharedService: ApiService, private route: ActivatedRoute, private router: Router, private tidService: TidService) {
+  constructor(private formBuilder: FormBuilder ,private http: HttpClient, private apiservice: ApiService, private sharedService: ApiService, private route: ActivatedRoute, private router: Router, private tidService: TidService) {
 
     //Mobile NUmbaer Otp
     this.step1 = this.formBuilder.group({
@@ -136,7 +140,7 @@ export class AccountopeningFormComponent {
       district : ['', Validators.required],
       operationMode: ['', Validators.required],
       accFreqStatement: ['', Validators.required],
-      branch_id: 140,
+      branch_id: ['', Validators.required],
       productId: ['', Validators.required],
       companyName: ['', Validators.required],
       customerFullName: ['', Validators.required],
@@ -145,6 +149,7 @@ export class AccountopeningFormComponent {
       city: ['', Validators.required],
       natureOfBussiness: ['', Validators.required],
       address: ['', Validators.required],
+      constitutionOfBusiness : ['', Validators.required]
     })
 
     
@@ -152,15 +157,12 @@ export class AccountopeningFormComponent {
     this.savepro = this.formBuilder.group({
       tid: ['', Validators.required],
       billingCycle: ['', Validators.required],
-      assignDate: '2021-02-12',
+      assignDate: '2021-02-12' ,
       productId: ['', Validators.required]
     })
 
     this.step3.get('industry_sector_id')?.valueChanges.subscribe((value) => {
-      // Find the selected document category object
       const selectedDoc = this.docCategoryList.find(doc => doc.cid === value);
-      
-      // If a document category is found, update the industry_sector_name control value
       if (selectedDoc) {
         this.step3.get('industry_sector_name')?.setValue(selectedDoc.name);
       }
@@ -171,6 +173,17 @@ export class AccountopeningFormComponent {
         tid: ['', Validators.required],
         customerDocumentCategoryId:  ['', Validators.required],
         customerDocumentType:  ['', Validators.required]
+      })
+
+      
+      this.aadhar = this.formBuilder.group({
+        tid: ['', Validators.required],
+        adaharNumber: ['', Validators.required]
+      })
+
+      this.pan = this.formBuilder.group({
+        tid: ['', Validators.required],
+        panNumber: ['', Validators.required]
       })
 
 
@@ -267,6 +280,7 @@ export class AccountopeningFormComponent {
     this.step5 = this.formBuilder.group({
       auto_Debit_Date: ['', Validators.required],
       bank_account_no: ['', Validators.required],
+      bankName: ['', Validators.required],
       fullName: ['', Validators.required],
       mob_no: ['', Validators.required],
       account_type: ['', Validators.required],
@@ -322,7 +336,7 @@ export class AccountopeningFormComponent {
       }
     );
 
-    // this.apiservice.allBranches().subscribe(
+    // this.apiservice.getAllBranch().subscribe(
     //   ( data: any) => {
     //     this.branchList=data.data;
     //     this.collectionSize = data.data.length ;
@@ -334,6 +348,14 @@ export class AccountopeningFormComponent {
     //   }
 
     // );
+
+    this.http.get<any>('https://clientportal.promunim.com/send/get-branch')
+    .subscribe(Response => {
+      if (Response.status) {
+        this.getAllBranch = Response.data;
+      }
+    });
+
 
     this.apiservice.productlist().subscribe(  //AOF6
       (data: any) => {
@@ -347,6 +369,7 @@ export class AccountopeningFormComponent {
       }
     );
   }
+
 
   
   generateTid(): void {
@@ -470,6 +493,55 @@ export class AccountopeningFormComponent {
     );
   }
 
+  getOfflineAadhar(){
+    this.aadhar.value.tid = localStorage.getItem("tid") ;
+    console.log("111111111111111111111111111111111 ::::::: ", this.aadhar.value , this.docImage);
+    this.apiservice.getOfflineAadhar(this.aadhar.value , this.docImage).subscribe(
+      (response: any) => {
+        console.log("get Offline Aadhar ::::::: ", this.aadhar.value , this.docImage);
+        Swal.fire({
+          icon: 'success',
+          title: 'Aadhar Uploaded!',
+          text: 'Your document has been successfully uploaded.',
+        });
+      },
+      (error: any) => {
+        console.error("not working", error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Validation Error!',
+          text: 'Please fill in all fields.',
+        });
+      }
+    );
+    this.tidToSearch();
+  }
+
+  getOfflinePan(){
+    this.pan.value.tid = localStorage.getItem("tid") ;
+    console.log("111111111111111111111111111111111 ::::::: ", this.pan.value , this.docImage);
+    this.apiservice.getOfflinePan(this.pan.value , this.docImage).subscribe(
+      (response: any) => {
+        console.log("get Offline Aadhar ::::::: ", this.pan.value , this.docImage);
+        Swal.fire({
+          icon: 'success',
+          title: 'Pan Uploaded!',
+          text: 'Your document has been successfully uploaded.',
+        });
+      },
+      (error: any) => {
+        console.error("not working", error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Validation Error!',
+          text: 'Please fill in all fields.',
+        });
+      }
+    );
+    this.tidToSearch();
+  }
+
+
 
   getDoc(){
     this.step21.value.tid = localStorage.getItem("tid") ;
@@ -585,7 +657,10 @@ export class AccountopeningFormComponent {
     console.log("savePro values: ", this.savepro.value); // Log the values being sent in the request
     this.apiservice.savePro(this.savepro.value).subscribe(
       (response: any) => {
-        console.log("savePro response: ", response); // Log the response received from the server
+        console.log("savePro response$$$$$$$ ", response); // Log the response received from the server
+       
+        localStorage.setItem("accountNumber", response.accountNumber); 
+        // console.log("savePro Account Number ", localStorage.getItem('accountNumber'));
       },
       (error: any) => {
         console.error("Error in savePro: ", error); // Log any errors that occur during the request
@@ -596,8 +671,8 @@ export class AccountopeningFormComponent {
 
 
   bankDetails() {
-    this.step5.value.customerAccountNumber = localStorage.getItem("aofnumber") ;
-    this.step5.value.tid = localStorage.getItem("tid") ;
+    this.step5.value.customerAccountNumber = localStorage.getItem("accountNumber") ;
+    this.step5.value.tid = localStorage.getItem("tid");
     console.log('Data sent in request:', this.step5.value);
     this.apiservice.bankDetails(this.step5.value).subscribe(
       (response: any) => {

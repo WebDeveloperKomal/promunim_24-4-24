@@ -49,6 +49,141 @@ import { acWritingByIdModel } from './accwritingbyidModel';
   styleUrls: ['./view-customer-details.component.css']
 })
 export class ViewCustomerDetailsComponent {
+  //Accounting
+  AccountOverview: boolean = false;
+  SalesReport: boolean = false;
+  PurchaseReport: boolean = false;
+  StokeStatement: boolean = false;
+  DebtorsCreditors: boolean = false;
+  ExpenseReports: boolean = false;
+  TurnoverReport: boolean = false;
+  SuspenseReport: boolean = false;
+  FinalStatement: boolean = false;
+  ProjectReport: boolean = false;
+  PISReport: boolean = false;
+
+  //Taxes
+  Guidelines: boolean = false;
+  StatementofIncomet: boolean = false;
+  AdvanceTax: boolean = false;
+  AnnualTaxStatement: boolean = false;
+  ITReturnss: boolean = false;
+  IncomeTaxAudits: boolean = false;
+  Refundt: boolean = false;
+  Notices: boolean = false;
+  TaxPaidChallan: boolean = false;
+
+  //GST Regular
+  Guidlines1: boolean = false;
+  GSTRegistration: boolean = false;
+  E_WayBills: boolean = false;
+  GSTWorking: boolean = false;
+  GSTR2A_2BReport: boolean = false;
+  ITCReport: boolean = false;
+  RCMReport: boolean = false;
+  GSTR1: boolean = false;
+  GSTR3B: boolean = false;
+  GSTAudit: boolean = false;
+  GSTRegularAudit: boolean = false;
+  GSTR10: boolean = false;
+  GSTRegularNotices: boolean = false;
+
+  //GST Composition
+  Guidlines2: boolean = false;
+  GSTRegistrationForm: boolean = false;
+  GSTWorking1: boolean = false;
+  GSTRCMP08: boolean = false;
+  GSTR4: boolean = false;
+  TaxPaymentChallans: boolean = false;
+  GSTCompositionNotices: boolean = false;
+
+  //GST CompositTax Deducted at Source (TDS)
+  Guidlines3: boolean = false;
+  TANRegistration: boolean = false;
+  TDSWorking: boolean = false;
+  TDSPaymentChallan: boolean = false;
+  TDSFiling: boolean = false;
+  TDSCertificate: boolean = false;
+
+  //Tax Collected at Source (TCS)
+  Guidlines4: boolean = false;
+  TCSWorking: boolean = false;
+  TCSPaymentChallan: boolean = false;
+  TCSFiling: boolean = false;
+  TCSCertificate: boolean = false;
+
+  //Tax Collected at Source (TCS)
+  Guidlines5: boolean = false;
+  Registration: boolean = false;
+  PTECChallan: boolean = false;
+  PTECPaymentChallan: boolean = false;
+
+  //Professional Tax Registration Certificate (PTRC)
+  Guidlines6: boolean = false;
+  Registration1: boolean = false;
+  PTRCWorking: boolean = false;
+  PTRCChallan: boolean = false;
+  PTRCPaymentChallan: boolean = false;
+
+  //Audits
+  Guidlines7: boolean = false;
+  InternalAudits: boolean = false;
+  FinancialAudits: boolean = false;
+  ComplianceAudits: boolean = false;
+  StockAudit: boolean = false;
+  IncomeTaxAudit: boolean = false;
+  GSTAudit1: boolean = false;
+  Others: boolean = false;
+
+  //Business Registration
+  ProprietorshipRegistration: boolean = false;
+  PartnershipRegistration: boolean = false;
+  CompanyRegistration: boolean = false;
+  TrustAssociation: boolean = false;
+  HUFRegistration: boolean = false;
+
+  //Loan Service Request
+  FreeCreditScore: boolean = false;
+  NewHomeLoan: boolean = false;
+  LoanAgainstProperty: boolean = false;
+  BusinessLoan: boolean = false;
+  HomeLoan: boolean = false;
+  CashCredit: boolean = false;
+  LoanAgainstSecurity: boolean = false;
+  GoldLoan: boolean = false;
+  CarLoan: boolean = false;
+  CommercialVehicleLoan: boolean = false;
+  InfrastructureFinanceLoan: boolean = false;
+  EMICalculatorHomeLoan: boolean = false;
+  EligibilityCalculatorHomeLoan: boolean = false;
+  MicroLoanUnder: boolean = false;
+  TransferHomeLoan: boolean = false;
+  TransferBusinessLoan: boolean = false;
+  OverDraft: boolean = false;
+
+  //Service Requests
+   FraudandDispute: boolean = false;
+   AccountServiceRequest: boolean = false;
+   DuplicateStatementRequest: boolean = false;
+   TrackYourOrder: boolean = false;
+
+  //Insurance
+  PersonalAccidentProtection: boolean = false;
+  HealthInsurance: boolean = false;
+  HospitalDailyCashPlans: boolean = false;
+  FamilyProtectionPlans: boolean = false;
+  LifeCover: boolean = false;
+  AssuredSavingsPlan: boolean = false;
+  GuaranteedSavingsPlan: boolean = false;
+  TwoWheelerInsurance: boolean = false;
+  CarInsurance: boolean = false;
+  CommercialVehicleInsurance: boolean = false;
+  PradhanMantriJivanJyotiBimaYojna: boolean = false;
+  PradhanMantriSurakshaBimaYojna: boolean = false;
+  MyPolicies: boolean = false;
+  
+  
+
 
   step1 !: FormGroup;
   step2 !: FormGroup;
@@ -193,7 +328,7 @@ export class ViewCustomerDetailsComponent {
     productName: ''
   }];
 
-  
+
 
   URL: any;
   photo!: File;
@@ -291,11 +426,14 @@ export class ViewCustomerDetailsComponent {
     this.sign = event.target.files[0];
   }
 
+  AOF3name: any;
   docCategoryList = [{
     name: '',
     id: 0,
     cid: 0
   }]
+
+  document: any;
   docType = [{
     name: '',
     id: 0,
@@ -1131,6 +1269,24 @@ export class ViewCustomerDetailsComponent {
     this.id = this.route.snapshot.params['id'];
 
 
+    this.apiservice.docCategory().subscribe(  //AOF4
+      (data: any) => {
+        this.docCategoryList = data.docCategory;
+        console.log('Response successful!', this.docCategoryList);
+      },
+      (error: any) => {
+        console.error('API Error:', error);
+      }
+    );
+
+    this.apiservice.productlist().subscribe(  //AOF6
+      (data: any) => {
+        this.productList = data.data;
+      },
+      (error: any) => {
+        console.error('API Error:', error);
+      }
+    );
 
 
     console.log('@$$$$$$$$$$$$$$$$$$$$$$#3#@$@#$@$#@$#$@$#$@#@$#$@#$@#$@#$', localStorage.getItem('photoEmp'));
@@ -2029,6 +2185,11 @@ export class ViewCustomerDetailsComponent {
   }
 
 
+
+
+
+
+
   // this.apiservice.deleteCustInteraction(followupId).subscribe(
   //   (response:any)=>{
   //     console.log(response.data);
@@ -2381,6 +2542,1496 @@ export class ViewCustomerDetailsComponent {
       }
     )
   }
+
+  // this.AccountOverview = !this.AccountOverview;
+
+  accountOverview() {
+    this.AccountOverview = !this.AccountOverview;
+    this.SalesReport = false;
+    this.PurchaseReport = false;
+    this.StokeStatement = false;
+    this.DebtorsCreditors = false;
+    this.ExpenseReports = false;
+    this.TurnoverReport = false;
+    this.SuspenseReport = false;
+    this.FinalStatement = false;
+    this.ProjectReport = false;
+    this.PISReport = false;
+  }
+
+  salesReport() {
+    this.AccountOverview = false;
+    this.SalesReport = !this.SalesReport;
+    this.PurchaseReport = false;
+    this.StokeStatement = false;
+    this.DebtorsCreditors = false;
+    this.ExpenseReports = false;
+    this.TurnoverReport = false;
+    this.SuspenseReport = false;
+    this.FinalStatement = false;
+    this.ProjectReport = false;
+    this.PISReport = false;
+  }
+
+  purchaseReport() {
+    this.AccountOverview = false;
+    this.SalesReport = false;
+    this.PurchaseReport = !this.PurchaseReport;
+    this.StokeStatement = false;
+    this.DebtorsCreditors = false;
+    this.ExpenseReports = false;
+    this.TurnoverReport = false;
+    this.SuspenseReport = false;
+    this.FinalStatement = false;
+    this.ProjectReport = false;
+    this.PISReport = false;
+  }
+
+  stokeStatement() {
+    this.AccountOverview = false;
+    this.SalesReport = false;
+    this.PurchaseReport = false;
+    this.StokeStatement = !this.StokeStatement;
+    this.DebtorsCreditors = false;
+    this.ExpenseReports = false;
+    this.TurnoverReport = false;
+    this.SuspenseReport = false;
+    this.FinalStatement = false;
+    this.ProjectReport = false;
+    this.PISReport = false;
+  }
+
+  debtorsCreditors() {
+    this.AccountOverview = false;
+    this.SalesReport = false;
+    this.PurchaseReport = false;
+    this.StokeStatement = false;
+    this.DebtorsCreditors = !this.DebtorsCreditors;
+    this.ExpenseReports = false;
+    this.TurnoverReport = false;
+    this.SuspenseReport = false;
+    this.FinalStatement = false;
+    this.ProjectReport = false;
+    this.PISReport = false;
+  }
+
+  expenseReports() {
+    this.AccountOverview = false;
+    this.SalesReport = false;
+    this.PurchaseReport = false;
+    this.StokeStatement = false;
+    this.DebtorsCreditors = false;
+    this.ExpenseReports = !this.ExpenseReports;
+    this.TurnoverReport = false;
+    this.SuspenseReport = false;
+    this.FinalStatement = false;
+    this.ProjectReport = false;
+    this.PISReport = false;
+  }
+
+  turnoverReport() {
+    this.AccountOverview = false;
+    this.SalesReport = false;
+    this.PurchaseReport = false;
+    this.StokeStatement = false;
+    this.DebtorsCreditors = false;
+    this.ExpenseReports = false;
+    this.TurnoverReport = !this.TurnoverReport;
+    this.SuspenseReport = false;
+    this.FinalStatement = false;
+    this.ProjectReport = false;
+    this.PISReport = false;
+  }
+
+  suspenseReport() {
+    this.AccountOverview = false;
+    this.SalesReport = false;
+    this.PurchaseReport = false;
+    this.StokeStatement = false;
+    this.DebtorsCreditors = false;
+    this.ExpenseReports = false;
+    this.TurnoverReport = false;
+    this.SuspenseReport = !this.SuspenseReport;
+    this.FinalStatement = false;
+    this.ProjectReport = false;
+    this.PISReport = false;
+  }
+
+  finalStatement() {
+    this.AccountOverview = false;
+    this.SalesReport = false;
+    this.PurchaseReport = false;
+    this.StokeStatement = false;
+    this.DebtorsCreditors = false;
+    this.ExpenseReports = false;
+    this.TurnoverReport = false;
+    this.SuspenseReport = false;
+    this.FinalStatement = !this.FinalStatement;
+    this.ProjectReport = false;
+    this.PISReport = false;
+  }
+
+  projectReport() {
+    this.AccountOverview = false;
+    this.SalesReport = false;
+    this.PurchaseReport = false;
+    this.StokeStatement = false;
+    this.DebtorsCreditors = false;
+    this.ExpenseReports = false;
+    this.TurnoverReport = false;
+    this.SuspenseReport = false;
+    this.FinalStatement = false;
+    this.ProjectReport = !this.ProjectReport;
+    this.PISReport = false;
+  }
+
+  pISReport() {
+    this.AccountOverview = false;
+    this.SalesReport = false;
+    this.PurchaseReport = false;
+    this.StokeStatement = false;
+    this.DebtorsCreditors = false;
+    this.ExpenseReports = false;
+    this.TurnoverReport = false;
+    this.SuspenseReport = false;
+    this.FinalStatement = false;
+    this.ProjectReport = false;
+    this.PISReport = !this.PISReport;
+  }
+
+
+
+
+
+  //Taxes  
+  guidelines() {
+    this.Guidelines = !this.Guidelines;
+    this.StatementofIncomet = false;
+    this.AdvanceTax = false;
+    this.AnnualTaxStatement = false;
+    this.ITReturnss = false;
+    this.IncomeTaxAudits = false;
+    this.Refundt = false;
+    this.Notices = false;
+    this.TaxPaidChallan = false;
+
+  }
+
+  statementofIncomet() {
+    this.Guidelines = false;
+    this.StatementofIncomet = !this.StatementofIncomet;
+    this.AdvanceTax = false;
+    this.AnnualTaxStatement = false;
+    this.ITReturnss = false;
+    this.IncomeTaxAudits = false;
+    this.Refundt = false;
+    this.Notices = false;
+    this.TaxPaidChallan = false;
+  }
+
+  advanceTax() {
+    this.Guidelines = false;
+    this.StatementofIncomet = false;
+    this.AdvanceTax = !this.AdvanceTax;
+    this.AnnualTaxStatement = false;
+    this.ITReturnss = false;
+    this.IncomeTaxAudits = false;
+    this.Refundt = false;
+    this.Notices = false;
+    this.TaxPaidChallan = false;
+  }
+
+  annualTaxStatement() {
+    this.Guidelines = false;
+    this.StatementofIncomet = false;
+    this.AdvanceTax = false;
+    this.AnnualTaxStatement = !this.AnnualTaxStatement;
+    this.ITReturnss = false;
+    this.IncomeTaxAudits = false;
+    this.Refundt = false;
+    this.Notices = false;
+    this.TaxPaidChallan = false;
+  }
+
+  iTReturnss() {
+    this.Guidelines = false;
+    this.StatementofIncomet = false;
+    this.AdvanceTax = false;
+    this.AnnualTaxStatement = false;
+    this.ITReturnss = !this.ITReturnss;
+    this.IncomeTaxAudits = false;
+    this.Refundt = false;
+    this.Notices = false;
+    this.TaxPaidChallan = false;
+  }
+
+  incomeTaxAudits() {
+    this.Guidelines = false;
+    this.StatementofIncomet = false;
+    this.AdvanceTax = false;
+    this.AnnualTaxStatement = false;
+    this.ITReturnss = false;
+    this.IncomeTaxAudits = !this.IncomeTaxAudits;
+    this.Refundt = false;
+    this.Notices = false;
+    this.TaxPaidChallan = false;
+  }
+
+  refundt() {
+    this.Guidelines = false;
+    this.StatementofIncomet = false;
+    this.AdvanceTax = false;
+    this.AnnualTaxStatement = false;
+    this.ITReturnss = false;
+    this.IncomeTaxAudits = false;
+    this.Refundt = !this.Refundt;
+    this.Notices = false;
+    this.TaxPaidChallan = false;
+  }
+
+  notices() {
+    this.Guidelines = false;
+    this.StatementofIncomet = false;
+    this.AdvanceTax = false;
+    this.AnnualTaxStatement = false;
+    this.ITReturnss = false;
+    this.IncomeTaxAudits = false;
+    this.Refundt = false;
+    this.Notices = !this.Notices;
+    this.TaxPaidChallan = false;
+  }
+
+  taxPaidChallan() {
+    this.Guidelines = false;
+    this.StatementofIncomet = false;
+    this.AdvanceTax = false;
+    this.AnnualTaxStatement = false;
+    this.ITReturnss = false;
+    this.IncomeTaxAudits = false;
+    this.Refundt = false;
+    this.Notices = false;
+    this.TaxPaidChallan = !this.TaxPaidChallan;
+  }
+
+  //GSTRegular
+
+  guidlines1() {
+
+    this.Guidlines1 = !this.Guidlines1;
+    this.GSTRegistration = false;
+    this.E_WayBills = false;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = false;
+    this.RCMReport = false;
+    this.GSTR1 = false;
+    this.GSTR3B = false;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = false;
+  }
+
+  gstRegistration() {
+    // this.GSTRegistration = !this.GSTRegistration;
+    this.Guidlines1 = false;
+    this.GSTRegistration = !this.GSTRegistration;
+    this.E_WayBills = false;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = false;
+    this.RCMReport = false;
+    this.GSTR1 = false;
+    this.GSTR3B = false;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = false;
+
+  }
+
+  e_WayBills() {
+    this.Guidlines1 = false;
+    this.GSTRegistration = false;
+    this.E_WayBills = !this.E_WayBills;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = false;
+    this.RCMReport = false;
+    this.GSTR1 = false;
+    this.GSTR3B = false;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = false;
+  }
+
+
+  gSTWorking() {
+    this.Guidlines1 = false;
+    this.GSTRegistration = false;
+    this.E_WayBills = false;
+    this.GSTWorking = !this.GSTWorking;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = false;
+    this.RCMReport = false;
+    this.GSTR1 = false;
+    this.GSTR3B = false;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = false;
+  }
+
+
+  gSTR2A_2BReport() {
+    this.Guidlines1 = false;
+    this.GSTRegistration = false;
+    this.E_WayBills = false;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = !this.GSTR2A_2BReport;
+    this.ITCReport = false;
+    this.RCMReport = false;
+    this.GSTR1 = false;
+    this.GSTR3B = false;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = false;
+  }
+
+
+  iTCReport() {
+    this.Guidlines1 = false;
+    this.GSTRegistration = false;
+    this.E_WayBills = false;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = !this.ITCReport;
+    this.RCMReport = false;
+    this.GSTR1 = false;
+    this.GSTR3B = false;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = false;
+  }
+
+
+  rCMReport() {
+    this.Guidlines1 = false;
+    this.GSTRegistration = false;
+    this.E_WayBills = false;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = false;
+    this.RCMReport = !this.RCMReport;
+    this.GSTR1 = false;
+    this.GSTR3B = false;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = false;
+  }
+
+
+  gSTR1() {
+    this.Guidlines1 = false;
+    this.GSTRegistration = false;
+    this.E_WayBills = false;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = false;
+    this.RCMReport = false;
+    this.GSTR1 = !this.GSTR1;
+    this.GSTR3B = false;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = false;
+  }
+
+
+  gSTR3B() {
+    this.Guidlines1 = false;
+    this.GSTRegistration = false;
+    this.E_WayBills = false;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = false;
+    this.RCMReport = false;
+    this.GSTR1 = false;
+    this.GSTR3B = !this.GSTR3B;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = false;
+  }
+
+
+  gSTAudit() {
+    this.Guidlines1 = false;
+    this.GSTRegistration = false;
+    this.E_WayBills = false;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = false;
+    this.RCMReport = false;
+    this.GSTR1 = false;
+    this.GSTR3B = false;
+    this.GSTAudit = !this.GSTAudit;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = false;
+  }
+
+
+  gSTRegularAudit() {
+    this.Guidlines1 = false;
+    this.GSTRegistration = false;
+    this.E_WayBills = false;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = false;
+    this.RCMReport = false;
+    this.GSTR1 = false;
+    this.GSTR3B = false;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = !this.GSTRegularAudit;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = false;
+  }
+
+
+
+  gSTR10() {
+    this.Guidlines1 = false;
+    this.GSTRegistration = false;
+    this.E_WayBills = false;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = false;
+    this.RCMReport = false;
+    this.GSTR1 = false;
+    this.GSTR3B = false;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = !this.GSTR10;
+    this.GSTRegularNotices = false;
+  }
+
+
+  gSTRegularNotices() {
+    this.Guidlines1 = false;
+    this.GSTRegistration = false;
+    this.E_WayBills = false;
+    this.GSTWorking = false;
+    this.GSTR2A_2BReport = false;
+    this.ITCReport = false;
+    this.RCMReport = false;
+    this.GSTR1 = false;
+    this.GSTR3B = false;
+    this.GSTAudit = false;
+    this.GSTRegularAudit = false;
+    this.GSTR10 = false;
+    this.GSTRegularNotices = !this.GSTRegularNotices;
+  }
+
+
+  //GST Composition
+
+  guidlines2() {
+    this.Guidlines2 = !this.Guidlines2;
+    this.GSTRegistrationForm = false;
+    this.GSTWorking1 = false;
+    this.GSTRCMP08 = false;
+    this.GSTR4 = false;
+    this.TaxPaymentChallans = false;
+    this.GSTCompositionNotices = false;
+  }
+
+  gSTRegistrationForm() {
+    this.Guidlines2 = false;
+    this.GSTRegistrationForm = !this.GSTRegistrationForm;
+    this.GSTWorking1 = false;
+    this.GSTRCMP08 = false;
+    this.GSTR4 = false;
+    this.TaxPaymentChallans = false;
+    this.GSTCompositionNotices = false;
+  }
+
+  gSTWorking1() {
+    this.Guidlines2 = false;
+    this.GSTRegistrationForm = false;
+    this.GSTWorking1 = !this.GSTWorking1;
+    this.GSTRCMP08 = false;
+    this.GSTR4 = false;
+    this.TaxPaymentChallans = false;
+    this.GSTCompositionNotices = false;
+  }
+
+  gSTRCMP08() {
+    this.Guidlines2 = false;
+    this.GSTRegistrationForm = false;
+    this.GSTWorking1 = false;
+    this.GSTRCMP08 = !this.GSTRCMP08;
+    this.GSTR4 = false;
+    this.TaxPaymentChallans = false;
+    this.GSTCompositionNotices = false;
+  }
+
+  gSTR4() {
+    this.Guidlines2 = false;
+    this.GSTRegistrationForm = false;
+    this.GSTWorking1 = false;
+    this.GSTRCMP08 = false;
+    this.GSTR4 = !this.GSTR4;
+    this.TaxPaymentChallans = false;
+    this.GSTCompositionNotices = false;
+  }
+
+  taxPaymentChallans() {
+    this.Guidlines2 = false;
+    this.GSTRegistrationForm = false;
+    this.GSTWorking1 = false;
+    this.GSTRCMP08 = false;
+    this.GSTR4 = false;
+    this.TaxPaymentChallans = !this.TaxPaymentChallans;
+    this.GSTCompositionNotices = false;
+  }
+
+  gSTCompositionNotices() {
+    this.Guidlines2 = false;
+    this.GSTRegistrationForm = false;
+    this.GSTWorking1 = false;
+    this.GSTRCMP08 = false;
+    this.GSTR4 = false;
+    this.TaxPaymentChallans = false;
+    this.GSTCompositionNotices = !this.GSTCompositionNotices;
+  }
+
+
+
+  //GST CompositTax Deducted at Source (TDS)
+  guidlines3() {
+    this.Guidlines3 = !this.Guidlines3;
+    this.TANRegistration = false;
+    this.TDSWorking = false;
+    this.TDSPaymentChallan = false;
+    this.TDSFiling = false;
+    this.TDSCertificate = false;
+  }
+  tANRegistration() {
+    this.Guidlines3 = false;
+    this.TANRegistration = !this.TANRegistration;
+    this.TDSWorking = false;
+    this.TDSPaymentChallan = false;
+    this.TDSFiling = false;
+    this.TDSCertificate = false;
+  }
+
+  tDSWorking() {
+    this.Guidlines3 = false;
+    this.TANRegistration = false;
+    this.TDSWorking = !this.TDSWorking;
+    this.TDSPaymentChallan = false;
+    this.TDSFiling = false;
+    this.TDSCertificate = false;
+  }
+
+  tDSPaymentChallan() {
+    this.Guidlines3 = false;
+    this.TANRegistration = false;
+    this.TDSWorking = false;
+    this.TDSPaymentChallan = !this.TDSPaymentChallan;
+    this.TDSFiling = false;
+    this.TDSCertificate = false;
+  }
+
+  tDSFiling() {
+    this.Guidlines3 = false;
+    this.TANRegistration = false;
+    this.TDSWorking = false;
+    this.TDSPaymentChallan = false;
+    this.TDSFiling = !this.TDSFiling;
+    this.TDSCertificate = false;
+  }
+
+  tDSCertificate() {
+    this.Guidlines3 = false;
+    this.TANRegistration = false;
+    this.TDSWorking = false;
+    this.TDSPaymentChallan = false;
+    this.TDSFiling = false;
+    this.TDSCertificate = !this.TDSCertificate;
+  }
+
+  //Tax Collected at Source (TCS)
+
+  guidlines4() {
+    this.Guidlines4 = !this.Guidlines4;
+    this.TCSWorking = false;
+    this.TCSPaymentChallan = false;
+    this.TCSFiling = false;
+    this.TCSCertificate = false;
+  }
+
+  tCSWorking() {
+    this.Guidlines4 = false;
+    this.TCSWorking = !this.TCSWorking;
+    this.TCSPaymentChallan = false;
+    this.TCSFiling = false;
+    this.TCSCertificate = false;
+  }
+
+  tCSPaymentChallan() {
+    this.Guidlines4 = false;
+    this.TCSWorking = false;
+    this.TCSPaymentChallan = !this.TCSPaymentChallan;
+    this.TCSFiling = false;
+    this.TCSCertificate = false;
+  }
+
+  tCSFiling() {
+    this.Guidlines4 = false;
+    this.TCSWorking = false;
+    this.TCSPaymentChallan = false;
+    this.TCSFiling = !this.TCSFiling;
+    this.TCSCertificate = false;
+  }
+
+  tCSCertificate() {
+    this.Guidlines4 = false;
+    this.TCSWorking = false;
+    this.TCSPaymentChallan = false;
+    this.TCSFiling = false;
+    this.TCSCertificate = !this.TCSCertificate;
+  }
+
+
+
+  //Tax Collected at Source (TCS)
+
+
+  guidlines5() {
+    this.Guidlines5 = !this.Guidlines5;
+    this.Registration = false;
+    this.PTECChallan = false;
+    this.PTECPaymentChallan = false;
+  }
+
+  registration() {
+    this.Guidlines5 = false;
+    this.Registration = !this.Registration;
+    this.PTECChallan = false;
+    this.PTECPaymentChallan = false;
+  }
+
+
+  pTECChallan() {
+    this.Guidlines5 = false;
+    this.Registration = false;
+    this.PTECChallan = !this.PTECChallan;
+    this.PTECPaymentChallan = false;
+  }
+
+
+  pTECPaymentChallan() {
+    this.Guidlines5 = false;
+    this.Registration = false;
+    this.PTECChallan = false;
+    this.PTECPaymentChallan = !this.PTECPaymentChallan;
+  }
+
+  //Professional Tax Registration Certificate (PTRC)  
+  guidlines6() {
+    this.Guidlines6 = !this.Guidlines6;
+    this.Registration1 = false;
+    this.PTRCWorking = false;
+    this.PTRCChallan = false;
+    this.PTRCPaymentChallan = false;
+  }
+
+  registration1() {
+    this.Guidlines6 = false;
+    this.Registration1 = !this.Registration1;
+    this.PTRCWorking = false;
+    this.PTRCChallan = false;
+    this.PTRCPaymentChallan = false;
+  }
+
+  pTRCWorking() {
+    this.Guidlines6 = false;
+    this.Registration1 = false;
+    this.PTRCWorking = !this.PTRCWorking;
+    this.PTRCChallan = false;
+    this.PTRCPaymentChallan = false;
+  }
+
+  pTRCChallan() {
+    this.Guidlines6 = false;
+    this.Registration1 = false;
+    this.PTRCWorking = false;
+    this.PTRCChallan = !this.PTRCChallan;
+    this.PTRCPaymentChallan = false;
+  }
+
+
+  pTECPaymentChallan1() {
+    this.Guidlines6 = false;
+    this.Registration1 = false;
+    this.PTRCWorking = false;
+    this.PTRCChallan = false;
+    this.PTRCPaymentChallan = !this.PTRCPaymentChallan;
+  }
+
+
+  //Audits
+  guidlines7() {
+    this.Guidlines7 = !this.Guidlines7;
+    this.InternalAudits = false;
+    this.FinancialAudits = false;
+    this.ComplianceAudits = false;
+    this.StockAudit = false;
+    this.IncomeTaxAudit = false;
+    this.GSTAudit1 = false;
+    this.Others = false;
+  }
+
+  internalAudits() {
+    this.Guidlines7 = false;
+    this.InternalAudits = !this.InternalAudits;
+    this.FinancialAudits = false;
+    this.ComplianceAudits = false;
+    this.StockAudit = false;
+    this.IncomeTaxAudit = false;
+    this.GSTAudit1 = false;
+    this.Others = false;
+  }
+
+  financialAudits() {
+    this.Guidlines7 = false;
+    this.InternalAudits = false;
+    this.FinancialAudits = !this.FinancialAudits;
+    this.ComplianceAudits = false;
+    this.StockAudit = false;
+    this.IncomeTaxAudit = false;
+    this.GSTAudit1 = false;
+    this.Others = false;
+  }
+
+  complianceAudits() {
+    this.Guidlines7 = false;
+    this.InternalAudits = false;
+    this.FinancialAudits = false;
+    this.ComplianceAudits = !this.ComplianceAudits;
+    this.StockAudit = false;
+    this.IncomeTaxAudit = false;
+    this.GSTAudit1 = false;
+    this.Others = false;
+  }
+
+  stockAudit() {
+    this.Guidlines7 = false;
+    this.InternalAudits = false;
+    this.FinancialAudits = false;
+    this.ComplianceAudits = false;
+    this.StockAudit = !this.StockAudit;
+    this.IncomeTaxAudit = false;
+    this.GSTAudit1 = false;
+    this.Others = false;
+  }
+
+  incomeTaxAudit() {
+    this.Guidlines7 = false;
+    this.InternalAudits = false;
+    this.FinancialAudits = false;
+    this.ComplianceAudits = false;
+    this.StockAudit = false;
+    this.IncomeTaxAudit = !this.IncomeTaxAudit;
+    this.GSTAudit1 = false;
+    this.Others = false;
+  }
+
+  gSTAudit1() {
+    this.Guidlines7 = false;
+    this.InternalAudits = false;
+    this.FinancialAudits = false;
+    this.ComplianceAudits = false;
+    this.StockAudit = false;
+    this.IncomeTaxAudit = false;
+    this.GSTAudit1 = !this.GSTAudit1;
+    this.Others = false;
+  }
+
+  others() {
+    this.Guidlines7 = false;
+    this.InternalAudits = false;
+    this.FinancialAudits = false;
+    this.ComplianceAudits = false;
+    this.StockAudit = false;
+    this.IncomeTaxAudit = false;
+    this.GSTAudit1 = false;
+    this.Others = !this.Others;
+  }
+
+//Business Registration
+// ProprietorshipRegistration: boolean = false;
+// PartnershipRegistration: boolean = false;
+// CompanyRegistration: boolean = false;
+// TrustAssociation: boolean = false;
+// HUFRegistration: boolean = false;
+
+
+proprietorshipRegistration() {
+  this.ProprietorshipRegistration = ! this.ProprietorshipRegistration;
+  this.PartnershipRegistration = false;
+  this.CompanyRegistration = false;
+  this.TrustAssociation = false;
+  this.HUFRegistration = false;
+}
+
+
+partnershipRegistration() {
+  this.ProprietorshipRegistration = false;
+  this.PartnershipRegistration = ! this.PartnershipRegistration;
+  this.CompanyRegistration = false;
+  this.TrustAssociation = false;
+  this.HUFRegistration = false;
+}
+
+companyRegistration() {
+  this.ProprietorshipRegistration = false;
+  this.PartnershipRegistration = false;
+  this.CompanyRegistration = ! this.CompanyRegistration;
+  this.TrustAssociation = false;
+  this.HUFRegistration = false;
+}
+
+trustAssociation() {
+  this.ProprietorshipRegistration = false;
+  this.PartnershipRegistration = false;
+  this.CompanyRegistration = false;
+  this.TrustAssociation = ! this.TrustAssociation;
+  this.HUFRegistration = false;
+}
+
+hUFRegistration() {
+  this.ProprietorshipRegistration = false;
+  this.PartnershipRegistration = false;
+  this.CompanyRegistration = false;
+  this.TrustAssociation = false;
+  this.HUFRegistration = ! this.HUFRegistration;
+}
+
+
+  //Loan Service Request
+  freeCreditScore() {
+    this.FreeCreditScore = !this.FreeCreditScore;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }
+
+
+  newHomeLoan() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = !this.NewHomeLoan;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }  
+  
+  loanAgainstProperty() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = !this.LoanAgainstProperty;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  } 
+  
+  businessLoan() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = !this.BusinessLoan;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }
+
+
+  homeLoan() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = !this.HomeLoan;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }
+
+
+  cashCredit() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = !this.CashCredit;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }  
+  
+  loanAgainstSecurity() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = !this.LoanAgainstSecurity;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  } 
+  
+  goldLoan() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = !this.GoldLoan;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }
+
+
+    
+  carLoan() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = !this.CarLoan;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }
+
+
+  commercialVehicleLoan() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = !this.CommercialVehicleLoan;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }
+
+
+  infrastructureFinanceLoan() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = !this.InfrastructureFinanceLoan;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }  
+  
+  eMICalculatorHomeLoan() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = !this.EMICalculatorHomeLoan;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  } 
+  
+  eligibilityCalculatorHomeLoan() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = !this.EligibilityCalculatorHomeLoan;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }
+
+  
+
+  microLoanUnder() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = !this.MicroLoanUnder;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }
+
+
+  transferHomeLoan() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = !this.TransferHomeLoan;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = false;
+    
+  }  
+  
+  transferBusinessLoan() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = !this.TransferBusinessLoan;
+    this.OverDraft = false;
+    
+  } 
+  
+  overDraft() {
+    this.FreeCreditScore = false;
+    this.NewHomeLoan = false;
+    this.LoanAgainstProperty = false;
+    this.BusinessLoan = false;
+    this.HomeLoan = false;
+    this.CashCredit = false;
+    this.LoanAgainstSecurity = false;
+    this.GoldLoan = false;
+    this.CarLoan = false;
+    this.CommercialVehicleLoan = false;
+    this.InfrastructureFinanceLoan = false;
+    this.EMICalculatorHomeLoan = false;
+    this.EligibilityCalculatorHomeLoan = false;
+    this.MicroLoanUnder = false;
+    this.TransferHomeLoan = false;
+    this.TransferBusinessLoan = false;
+    this.OverDraft = !this.OverDraft;
+    
+  }
+
+   //Service Requests
+   fraudandDispute() {
+    this.FraudandDispute = !this.FraudandDispute;
+    this.AccountServiceRequest = false;
+    this.DuplicateStatementRequest = false;
+    this.TrackYourOrder = false;
+  }
+
+  accountServiceRequest1() {
+    this.FraudandDispute = false;
+    this.AccountServiceRequest = !this.AccountServiceRequest;
+    this.DuplicateStatementRequest = false;
+    this.TrackYourOrder = false;
+  }
+
+  duplicateStatementRequest() {
+    this.FraudandDispute = false;
+    this.AccountServiceRequest = false;
+    this.DuplicateStatementRequest = !this.DuplicateStatementRequest;
+    this.TrackYourOrder = false;
+  }
+
+
+  trackYourOrder() {
+    this.FraudandDispute = false;
+    this.AccountServiceRequest = false;
+    this.DuplicateStatementRequest = false;
+    this.TrackYourOrder = !this.TrackYourOrder;
+  }
+
+
+
+  //Insurance
+   personalAccidentProtection() {
+    this.PersonalAccidentProtection = !this.PersonalAccidentProtection;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = false;    
+  }
+
+  healthInsurance() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = !this.HealthInsurance;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = false;    
+  }
+
+  hospitalDailyCashPlans() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = !this.HospitalDailyCashPlans;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = false;    
+  }
+
+  familyProtectionPlans() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = !this.FamilyProtectionPlans;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = false;    
+  }
+
+  lifeCover() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = !this.LifeCover;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = false;    
+  }
+
+  assuredSavingsPlan() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = !this.AssuredSavingsPlan;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = false;    
+  }
+  guaranteedSavingsPlan() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = !this.GuaranteedSavingsPlan;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = false;    
+  }
+  twoWheelerInsurance() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = !this.TwoWheelerInsurance;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = false;    
+  }
+  carInsurance() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = !this.CarInsurance;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = false;    
+  }
+
+  commercialVehicleInsurance() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = !this.CommercialVehicleInsurance;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = false;    
+  }
+
+  pradhanMantriJivanJyotiBimaYojna() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = !this.PradhanMantriJivanJyotiBimaYojna;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = false;    
+  }
+
+  pradhanMantriSurakshaBimaYojna() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = !this.PradhanMantriSurakshaBimaYojna;
+    this.MyPolicies = false;    
+  }
+
+  myPolicies() {
+    this.PersonalAccidentProtection = false;
+    this.HealthInsurance = false;
+    this.HospitalDailyCashPlans = false;
+    this.FamilyProtectionPlans = false;
+    this.LifeCover = false;
+    this.AssuredSavingsPlan = false;
+    this.GuaranteedSavingsPlan = false;
+    this.TwoWheelerInsurance = false;
+    this.CarInsurance = false;
+    this.CommercialVehicleInsurance = false;
+    this.PradhanMantriJivanJyotiBimaYojna = false;
+    this.PradhanMantriSurakshaBimaYojna = false;
+    this.MyPolicies = !this.MyPolicies;    
+  }
+
+
 }
 
 

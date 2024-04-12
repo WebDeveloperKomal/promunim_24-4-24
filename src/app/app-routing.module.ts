@@ -110,23 +110,23 @@ const routes: Routes = [
       {
         path : 'compliance' , component : ComplianceComponent , canActivate:[AuthGuard]
       },
+
       { path: "add-compliance", component: AddComplianceComponent , canActivate:[AuthGuard]},
+
       { path: "view-compliance/:id", component: ViewComplianceComponent , canActivate:[AuthGuard]},
+
       {
         path : 'department' , component : DepartmentComponent , canActivate:[AuthGuard]
       },
-      {
-        path : 'add-department' , component : AddDepartmentComponent , canActivate:[AuthGuard]
-      },
-      {
-        path : 'view-department/:id' , component : ViewDepartmentComponent , canActivate:[AuthGuard]
-      },
-      {
-        path : 'product' , component : ProductsComponent , canActivate:[AuthGuard]
-      },
-      {
-        path : 'add-product' , component : AddProductComponent , canActivate:[AuthGuard]
-      },
+
+      {path : 'add-department' , component : AddDepartmentComponent , canActivate:[AuthGuard]},
+
+      {path : 'view-department/:id' , component : ViewDepartmentComponent , canActivate:[AuthGuard]},
+
+      {path : 'product' , component : ProductsComponent , canActivate:[AuthGuard]},
+
+      {path : 'add-product' , component : AddProductComponent , canActivate:[AuthGuard] },
+      
       {
         path : 'view-product/:id' , component : ViewProductComponent , canActivate:[AuthGuard]
       },

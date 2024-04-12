@@ -418,6 +418,27 @@ export class ApiService {
   VerifyOtp(otp: any): any {
     return this.http.post(`${this.baseUrl1}/user/new-user-verify-OTP`, otp)
   }
+  
+  getAllBranch(): any { // running
+    return this.http.get(`${this.baseUrl}/get-branch`);
+  }
+
+  getOfflineAadhar(data: any, docImage: File): any {
+    const formdata: FormData = new FormData();
+    formdata.append('data', JSON.stringify(data));
+    formdata.append('docImage', docImage);
+    return this.http.post(`${this.baseUrl1}/save-offline-adahar`, formdata, { reportProgress: true })
+
+  }
+
+  getOfflinePan(data: any, docImage: File): any {
+    const formdata: FormData = new FormData();
+    formdata.append('data', JSON.stringify(data));
+    formdata.append('docImage', docImage);
+    return this.http.post(`${this.baseUrl1}/save-offline-pan`, formdata, { reportProgress: true })
+
+  }
+
 
   businessDetails(details: any): any { //Running
     return this.http.post(`${this.baseUrl1}/savebusinessdetails`, details)

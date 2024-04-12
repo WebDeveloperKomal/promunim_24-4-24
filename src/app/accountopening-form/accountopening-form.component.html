@@ -117,7 +117,7 @@
                                                 class="form-horizontal form-label-left ng-pristine ng-invalid ng-invalid-required m-4">
 
                                                 <div
-                                                    style="background-color: #fff; margin-top: 10px; padding: 10px 80px; border-radius: 6px;">
+                                                    style="background-color: #fff;  margin-top: 10px; padding: 10px 80px; border-radius: 6px;">
 
                                                     <p class="h2_form text-center mt-3">
                                                         <b style="color: #3BB161; font-size: 22px;">Welcome To
@@ -130,17 +130,16 @@
                                                             alt="">&nbsp;&nbsp;
                                                     </p>
 
-                                                    <div
-                                                        style="border: solid 1px rgb(54, 50, 50); border-radius: 20px;">
+                                                    <div>
 
                                                         <p class="h2_form text-center mt-3">
-                                                            <b style="color: #004C8C; font-size: 18px;">OPEN AN
+                                                            <b style="color: #004C8C; font-size: 22px;">OPEN AN
                                                                 ACCOUNT</b> <br>
-                                                            <b style="color: #004C8C; font-size: 10px;">Or Resume Your
+                                                            <b style="color: #004C8C; font-size: 13px;">Or Resume Your
                                                                 Application</b>
                                                         </p>
 
-                                                        <div class="form-group row">
+                                                        <div class="form-group row" style="display: none;">
                                                             <div class="col-md-12 col-lg-6 col-xl-6 col-12 offset-lg-3"
                                                                 style="margin-top: -15px;">
                                                                 <div class="form-floating ml-2 mb-2 col-md-12">
@@ -169,7 +168,7 @@
                                                     <br>
                                                     <!-- <hr class="col-8 offset-lg-2"> -->
                                                     <div class="mb-4"
-                                                        style="border: solid 1px rgb(54, 50, 50); border-radius: 20px;">
+                                                        style="border: solid 1px rgb(54, 50, 50); display: none; border-radius: 20px;">
                                                         <div class="form-group row">
                                                             <div class="col-md-12 col-lg-6 col-xl-6 col-12 offset-lg-3">
 
@@ -397,6 +396,26 @@
                                                             </div>
                                                         </div>
 
+
+                                                        <div class="col-md-12 col-lg-6 col-xl-6 col-12" style="margin-top: -15px;">
+                                                            <div class="form-floating ml-2 mb-2 col-md-12">
+                                                              <br>
+                                                              <select style="border-radius: 10px;" formControlName="branch_id" aria-label="Floating label select example"
+                                                                id="as1gender" class="form-select">
+                                                                <option selected>Select</option>
+                                                                <option *ngFor="let data of getAllBranch" [value]="data[0]">
+                                                                  {{data[1]}}
+                                                                </option>
+                                                              </select>
+                                                              <label for="tempCustApplicantName" id="Applicant"
+                                                                class="control-label col-md-3 col-sm-3 col-xs-12">
+                                                                Select Branch<span class="required">*</span>
+                                                              </label>
+                                                            </div>
+                                                          </div>
+                                                          
+
+
                                                         <div class="col-md-12 col-lg-6 col-xl-6 col-12"
                                                             style="margin-top: -15px;">
 
@@ -475,6 +494,17 @@
                                                         </div>
 
                                                         <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+                                                            <div class="form-floating  mb-2 col-md-12">
+                                                                <input type="text" placeholder=""
+                                                                    formControlName="constitutionOfBusiness"
+                                                                    style="border-radius: 10px;" class="form-control"
+                                                                    id="complianceDueDate">
+                                                                <label for="tempCustdorordob"
+                                                                    class="col-lg-2 col-4   col-form-label mr-5">Constitution Of Business<span class="required">*</span> </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-12 col-lg-6 col-xl-6 col-12">
 
                                                             <div class="form-floating  mb-2 col-md-12">
                                                                 <select placeholder="" style="border-radius: 10px;"
@@ -524,6 +554,124 @@
                                                     </div>
                                                 </div>
                                             </form>
+
+
+                                            <form
+                                            class="form-horizontal form-label-left ng-pristine ng-invalid ng-invalid-required m-4"
+                                            [formGroup]="pan">
+                                            <div
+                                                style="background-color: #fff; margin-top: 0px; padding: 10px 80px; border-radius: 6px;">
+                                                <p class="h2_form text-center mt-3"
+                                                    style="color: #3BB161; font-size: 18px;">
+                                                    <b>Offline PAN Verification</b>
+                                                </p>
+
+                                                <div class="form-group row">
+                                                    <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+
+                                                        <div class="form-floating  mb-2 col-md-12">
+                                                            <input type="text" placeholder=""
+                                                                formControlName="panNumber"
+                                                                style="border-radius: 10px;" class="form-control"
+                                                                id="complianceDueDate">
+                                                            <label for="tempCustdorordob"
+                                                                class="col-lg-2 col-4   col-form-label mr-5">Enter
+                                                                Your PAN Number<span class="required">*</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+
+                                                        <div class="form-floating  mb-2 col-md-12">
+                                                            <input type="file" placeholder=""
+                                                                (change)="onDocSelected($event)"
+                                                                style="border-radius: 10px;" class="form-control"
+                                                                id="complianceDueDate">
+                                                            <label for="tempCustdorordob"
+                                                                class="col-lg-2 col-4   col-form-label mr-5">Add
+                                                                Pan<span class="required">*</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                   
+                                                    <div class="text-center mt-1 align-middle">
+                                                        <button class="btn-info btn  m-lg-4 m-4 w-25"
+                                                            style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px; "
+                                                            type="submit" (click)="getOfflinePan()">
+                                                            Submit
+                                                        </button>
+
+                                                        <!-- <button class="btn-info btn m-lg-4 m-4 w-25"
+                                                            style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px;">
+
+                                                            Next
+                                                        </button> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+
+                                     <form
+                                        class="form-horizontal form-label-left ng-pristine ng-invalid ng-invalid-required m-4"
+                                        [formGroup]="aadhar">
+                                        <div
+                                            style="background-color: #fff; margin-top: 20px; padding: 10px 80px; border-radius: 6px;">
+                                            <p class="h2_form text-center mt-3"
+                                                style="color: #3BB161; font-size: 18px;">
+                                                <b>Offline Aadhar Verification</b>
+                                            </p>
+
+                                            <div class="form-group row">
+                                                <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+
+                                                    <div class="form-floating  mb-2 col-md-12">
+                                                        <input type="text" placeholder=""
+                                                            formControlName="adaharNumber"
+                                                            style="border-radius: 10px;" class="form-control"
+                                                            id="complianceDueDate">
+                                                        <label for="tempCustdorordob"
+                                                            class="col-lg-2 col-4   col-form-label mr-5">Enter
+                                                            Your Aadhar Number<span class="required">*</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+
+                                                    <div class="form-floating  mb-2 col-md-12">
+                                                        <input type="file" placeholder=""
+                                                            (change)="onDocSelected($event)"
+                                                            style="border-radius: 10px;" class="form-control"
+                                                            id="complianceDueDate">
+                                                        <label for="tempCustdorordob"
+                                                            class="col-lg-2 col-4   col-form-label mr-5">Add
+                                                            Aadhar<span class="required">*</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                               
+                                                <div class="text-center mt-1 align-middle">
+                                                    <button class="btn-info btn  m-lg-4 m-4 w-25"
+                                                        style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px; "
+                                                        type="submit" (click)="getOfflineAadhar()">
+                                                        Submit
+                                                    </button>
+
+                                                    <!-- <button class="btn-info btn m-lg-4 m-4 w-25"
+                                                        style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px;">
+
+                                                        Next
+                                                    </button> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
                                         </div>
 
                                         <div class="tab-pane" [class.active]="activeTab === 'tab2'" id="tab2">
@@ -3513,7 +3661,7 @@
                                                         <div class="text-center mt-4 align-middle">
                                                             <button class="btn-info btn  m-lg-4 m-4 w-25"
                                                                 style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px; "
-                                                                type="submit" (click)="personalInfo()">
+                                                                type="submit" (click)="personalInfo()" (click)="changeTab('tab3')">
 
                                                                 Submit
                                                             </button>
@@ -3529,8 +3677,8 @@
 
 
 
-                                                <div
-                                                    style="background-color: #fff; margin-top: 10px; padding: 10px 80px; border-radius: 6px;">
+                                                <div 
+                                                    style="background-color: #fff; margin-top: 10px; padding: 10px 80px; border-radius: 6px; display: none;">
                                                     <p class="h2_form text-center mt-3"
                                                         style="color: #3BB161; font-size: 18px;">
                                                         <b>Aadhar Verification offline</b>
@@ -3635,7 +3783,7 @@
                                                 </div>
 
                                                 <div
-                                                    style="background-color: #fff; margin-top: 10px; padding: 10px 80px; border-radius: 6px;">
+                                                    style="background-color: #fff; margin-top: 10px; padding: 10px 80px; border-radius: 6px; display: none;">
                                                     <p class="h2_form text-center mt-3"
                                                         style="color: #3BB161; font-size: 18px;">
                                                         <b>Aadhar Verification via Digilocke</b>
@@ -3774,6 +3922,7 @@
                                                                     class="col-lg-2 col-4   col-form-label mr-5">PAN
                                                                     Number<span class="required">*</span> </label>
                                                             </div>
+
                                                         </div>
 
                                                         <div class="col-md-12 col-lg-6 col-xl-6 col-12">
@@ -4020,7 +4169,7 @@
                                                         <div class="text-center mt-1 align-middle">
                                                             <button class="btn-info btn  m-lg-4 m-4 w-25"
                                                                 style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px; "
-                                                                type="submit" (click)="organizationIndividualDetails()">
+                                                                type="submit" (click)="organizationIndividualDetails()" >
                                                                 Finish
                                                             </button>
                                                         </div>
@@ -4527,7 +4676,7 @@
                                                         <div class="text-center mt-1 align-middle">
                                                             <button class="btn-info btn  m-lg-4 m-4 w-25"
                                                                 style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px; "
-                                                                type="submit" (click)="performFinishActions()">
+                                                                type="submit" (click)="performFinishActions()" (click)="savePro()">
                                                                 Finish
                                                             </button>
 
@@ -4917,6 +5066,19 @@
                                                                 <label for="tempCustdorordob"
                                                                     class="col-lg-2 col-4   col-form-label mr-5">Account
                                                                     Number<span class="required">*</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+
+                                                        <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+
+                                                            <div class="form-floating  mb-2 col-md-12">
+                                                                <input type="text" placeholder=""
+                                                                    formControlName="bankName"
+                                                                    class="form-control" id="complianceDueDate">
+                                                                <label for="tempCustdorordob"
+                                                                    class="col-lg-2 col-4   col-form-label mr-5">Bank Name<span class="required">*</span>
                                                                 </label>
                                                             </div>
                                                         </div>

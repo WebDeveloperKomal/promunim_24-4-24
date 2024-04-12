@@ -90,7 +90,7 @@ export class CustomerDocs {
             id: 0
         }
     ];
-    salesInvoice = [
+     salesInvoice = [
         {
             fromDate: "",
             toDate: "",
