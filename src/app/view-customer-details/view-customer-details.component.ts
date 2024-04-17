@@ -317,6 +317,7 @@ export class ViewCustomerDetailsComponent {
   tidData = {
     tid: 0
   }
+  
   accdata = {
     accountNo: 0
   }

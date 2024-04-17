@@ -462,7 +462,6 @@ export class ApiService {
     formdata.append('data', JSON.stringify(doc));
     formdata.append('docImage', docImage);
     return this.http.post(`${this.baseUrl1}/save-business-documents`, formdata, { reportProgress: true })
-
   }
 
   newAofstep3(aof2: any, sign: File, photo: File): any { //Running
@@ -489,6 +488,11 @@ export class ApiService {
   productlist1(): any { //Running
     return this.http.get(`${this.baseUrl1}/getProductsdetails`)
   }
+
+  getAllBranchDetails(tid: any ,  customer_id : any ,acc_no : any): any { //Running
+    return this.http.get(`${this.baseUrl1}/get-all-branch-details/` + tid + customer_id + acc_no)
+  }
+
 
   /**************** AOF Form  *************/
   TidDetails(tid: any): any { //Running

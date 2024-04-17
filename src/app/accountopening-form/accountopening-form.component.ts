@@ -153,11 +153,10 @@ export class AccountopeningFormComponent {
     })
 
     
-
-    this.savepro = this.formBuilder.group({
+      this.savepro = this.formBuilder.group({
       tid: ['', Validators.required],
       billingCycle: ['', Validators.required],
-      assignDate: '2021-02-12' ,
+      assignDate:  ['', Validators.required],
       productId: ['', Validators.required]
     })
 
@@ -213,7 +212,7 @@ export class AccountopeningFormComponent {
     this.step4 = this.formBuilder.group({
       tid: ['', Validators.required],
       tempCustdorordob: ['', Validators.required],
-      branchid:140,
+      branchid:['', Validators.required],
       aofNumber: ['', Validators.required],
       // aofNumber: localStorage.getItem('aofnumber'),
       tempCustApplicantName: ['', Validators.required],
@@ -322,6 +321,22 @@ export class AccountopeningFormComponent {
     // if (tid) {
     //   this.step21.patchValue({ tid: tid });
     // }
+
+    const tid = '1713016009';
+    const customer_id = '667';
+    const acc_no = '1405000000010';
+    
+    this.apiservice.getAllBranchDetails(tid, customer_id, acc_no).subscribe(
+      (data:any) => {
+        // Handle the data returned from the API
+        console.log('getAllBranchDetails,,,,,,,,,,,,,,,,,,,',data); // Log the data to the console, you can handle it as per your requirement
+      },
+      (error : any) => {
+        // Handle any errors that occur during the API call
+        console.error('Error fetching data:', error);
+      }
+    );
+  
 
     this.apiservice.docCategory().subscribe(  //AOF4
       (data: any) => {
@@ -479,11 +494,11 @@ export class AccountopeningFormComponent {
         Swal.fire({
           icon: 'success',
           title: 'Step 3 - Details of Organisation & Individuals  Process Completed!',
-          text: 'Your Step 3 Details of Organisation & Individuals  Process Completed!.',
+          text: 'Your Process Completed!.',
         });
       },
       (error: any) => {
-        console.error('Error generating OTP:', error);
+        console.error('Error organization Individual Details:', error);
         Swal.fire({
           icon: 'error',
           title: 'Validation Error!',
@@ -540,8 +555,6 @@ export class AccountopeningFormComponent {
     );
     this.tidToSearch();
   }
-
-
 
   getDoc(){
     this.step21.value.tid = localStorage.getItem("tid") ;
@@ -647,20 +660,18 @@ export class AccountopeningFormComponent {
         });
       }
     );
-    
   }
 
   savePro() {
     this.savepro.value.tid = localStorage.getItem("tid");
     this.savepro.value.billingCycle = localStorage.getItem("billingCycle");
     this.savepro.value.productId = localStorage.getItem("productId");
-    console.log("savePro values: ", this.savepro.value); // Log the values being sent in the request
+    console.log("savePro values : ", this.savepro.value); // Log the values being sent in the request
     this.apiservice.savePro(this.savepro.value).subscribe(
       (response: any) => {
         console.log("savePro response$$$$$$$ ", response); // Log the response received from the server
-       
         localStorage.setItem("accountNumber", response.accountNumber); 
-        // console.log("savePro Account Number ", localStorage.getItem('accountNumber'));
+        console.log("savePro Account Number ", localStorage.getItem('accountNumber'));
       },
       (error: any) => {
         console.error("Error in savePro: ", error); // Log any errors that occur during the request
@@ -668,7 +679,6 @@ export class AccountopeningFormComponent {
     );
   }
   
-
 
   bankDetails() {
     this.step5.value.customerAccountNumber = localStorage.getItem("accountNumber") ;
@@ -678,14 +688,23 @@ export class AccountopeningFormComponent {
       (response: any) => {
         console.log('OTP gene rated:', response);
         console.log('Data sent in request:', this.step5.value);
+        
         // Display success message using Swal
         Swal.fire({
           icon: 'success',
           // title: 'Bank Details Process Completed!',
           title: 'Your Registation Process Completed!',
           text: 'Your Registation Process completed successfully.',
+        })
+        .then((result) => {
+          // If Swal is closed, check if it was confirmed, then open Tab 6
+          if (result.isConfirmed) {
+            // Change the active tab to 'tab6'
+            this.activeTab = 'tab6';
+          }
         });
       },
+
       (error: any) => {
         console.error('Error generating OTP:', error);
         Swal.fire({
@@ -699,30 +718,29 @@ export class AccountopeningFormComponent {
 
   performFinishActions() {
     this.onsubmit2();
-    this.savePro();
+    // this.savePro();
     this.changeTab('tab4');
 }
-
-
 
   changeTab(tabId: string) {
     this.activeTab = tabId;
     if(tabId == "tab2"){
-this.formstep2  == !this.formstep2
+    this.formstep2  == !this.formstep2
     } 
   }
+  
   show1() {
     this.individual = true;
     this.nonindividual = false;
     this.selfemployee = false;
   }
 
-  
   show2() {
     this.individual = false;
     this.nonindividual = true;
     this.selfemployee = false;
   }
+  
   show3() {
     this.individual = false;
     this.nonindividual = false;
@@ -730,6 +748,7 @@ this.formstep2  == !this.formstep2
   }
 
 }
+
 function generateTid() {
   throw new Error('Function not implemented.');
 }

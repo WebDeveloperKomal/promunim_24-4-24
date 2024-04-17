@@ -91,7 +91,7 @@
 
 
                                 <!-- style="display: none;" -->
-                                <li style="display: none;" [class.active]="activeTab === 'tab6'"><a (click)="changeTab('tab6')"><span
+                                <li [class.active]="activeTab === 'tab6'"><a (click)="changeTab('tab6')"><span
                                             class="step_no" id="step_no1" style="font-size: 12px;">Step <p
                                                 style="margin-top: -25px;">6</p></span>
                                         <span class="step_descr"> <small>
@@ -2748,7 +2748,7 @@
                                                                 <div class="form-floating  mb-2 offset-6 col-md-12">
                                                                     <input type="file" placeholder=""
                                                                         class="form-control border-secondary"
-                                                                        (change)="onDocSelected($event)"
+                                                                        (change)=" ($event)"
                                                                         id="complianceDueDate">
                                                                     <label for="tempCustdorordob"
                                                                         class="col-lg-2 col-4   col-form-label mr-5">Shop
@@ -4703,13 +4703,12 @@
                                                         <div class="text-center mt-1 align-middle">
                                                             <button class="btn-info btn  m-lg-4 m-4 w-25"
                                                                 style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px; "
-                                                                type="submit" (click)="performFinishActions()"
-                                                                (click)="savePro()">
+                                                                type="submit" (click)="performFinishActions()">
                                                                 Finish
                                                             </button>
 
                                                             <button class="btn-info btn m-lg-4 m-4 w-25"
-                                                                style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px; "
+                                                                style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px; "  
                                                                 data-bs-toggle="modal" data-bs-target="#exampleModal6">
                                                                 Add Another Signatory
                                                             </button>
@@ -5042,9 +5041,83 @@
                                             </form>
                                         </div>
 
-
                                         <div class="tab-pane" [class.active]="activeTab === 'tab4'" id="tab4"
                                             style="margin-bottom: 35px;">
+
+
+                                            <form [formGroup]="savepro"
+                                            class="form-horizontal form-label-left ng-pristine ng-invalid ng-invalid-required m-4"
+                                            action="" method="post" modelattribute="doc1" name="form1">
+
+                                            <div
+                                                style="background-color: #fff; margin-top: 10px; padding: 10px 80px; border-radius: 6px;">
+                                                <p class="h2_form text-center mt-3"
+                                                    style="color: #3BB161; font-size: 18px;">
+                                                    <b>Save Pro</b>
+                                                </p>
+
+                                                <div class="form-group row">
+
+                                                    <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+
+                                                        <div class="form-floating  mb-2 col-md-12">
+                                                            <input type="text" placeholder=""
+                                                                formControlName="tid" class="form-control"
+                                                                id="complianceDueDate">
+                                                            <label for="tempCustdorordob"
+                                                                class="col-lg-2 col-4   col-form-label mr-5">Tid<span class="required">*</span> </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+
+                                                        <div class="form-floating  mb-2 col-md-12">
+                                                            <input type="text" placeholder=""
+                                                                formControlName="billingCycle"
+                                                                style="border-radius: 10px;" class="form-control"
+                                                                id="complianceDueDate">
+                                                            <label for="tempCustdorordob"
+                                                                class="col-lg-2 col-4   col-form-label mr-5">Billing Cycle<span class="required">*</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+
+                                                        <div class="form-floating  mb-2 col-md-12">
+                                                            <input type="text" placeholder=""
+                                                                formControlName="productId"
+                                                                class="form-control" id="complianceDueDate">
+                                                            <label for="tempCustdorordob"
+                                                                class="col-lg-2 col-4   col-form-label mr-5">Product Id<span class="required">*</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-md-12 col-lg-6 col-xl-6 col-12">
+
+                                                        <div class="form-floating  mb-2 col-md-12">
+                                                            <input type="date" placeholder=""
+                                                                formControlName="assignDate" class="form-control"
+                                                                id="complianceDueDate">
+                                                            <label for="tempCustdorordob"
+                                                                class="col-lg-2 col-4   col-form-label mr-5">Assign Date<span class="required">*</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                                                                       
+                                                    <div class="text-center mt-1 align-middle">
+                                                        <button class="btn-info btn  m-lg-4 m-4 w-25"
+                                                            style="height: 36px; font-size: 10px; width: 365px; border-radius: 80px; "
+                                                            type="submit" (click)="savePro()">
+                                                            Submit
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
 
                                             <form [formGroup]="step5"
                                                 class="form-horizontal form-label-left ng-pristine ng-invalid ng-invalid-required m-4"
@@ -5240,6 +5313,7 @@
                                                     </div>
                                                 </div>
                                             </form>
+
                                         </div>
 
                                         <div class="modal fade" id="exampleModal7" tabindex="-1"
@@ -6563,15 +6637,15 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        
+                                        <!-- *ngIf -->
                                         <div class="tab-pane" [class.active]="activeTab === 'tab6'" id="tab6">
 
                                             <form
                                                 class="form-horizontal form-label-left ng-pristine ng-invalid ng-invalid-required m-4">
 
                                                 <!-- Review and Submit Your Application -->
-                                                <div
-                                                    style="border: 1px solid black; padding: 10px 30px;">
+                                                <div style="border: 1px solid black; padding: 10px 30px;">
 
 
                                                     <p class="h2_form text-center mt-3"
@@ -6581,8 +6655,8 @@
 
                                                     <div class="row">
                                                         <div class="col-md-12 col-sm-12 col-xs-12 col-xl-6">
-                
-                                                            
+
+
                                                             <div class="mb-2">
                                                                 <div class="table-responsive"
                                                                     style="text-align: center; padding: 5px; border-radius: 7px 7px 0px 0px; background-color: #ffffff; color: #004C8C;">
@@ -6591,33 +6665,118 @@
                                                                 <table class="table rounded-table"
                                                                     style="border-radius: 0px 0px 7px 7px; background-color: #ffffff; line-height: 20px;">
                                                                     <thead>
-                
+
                                                                         <th style="font-size: 10px; padding-left: 25%;">
-                                                                            Name
+                                                                            Your Selected plan
                                                                         </th>
-                
-                                                                        <th style="font-size: 10px;" id="td">
-                                                                            PAN
-                                                                        </th>
+                                                                        <td>PAN</td>
+
                                                                     </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td style="padding-left: 25%;">data.name
-                                                                            </td>
-                                                                            <td style="padding-left: -10%;" id="td">
-                                                                                data.</td>
-                                                                        </tr>
-                                                                        <br>
-                                                                    </tbody>
+
+                                                                    <thead>
+
+                                                                        <th style="font-size: 10px; padding-left: 25%;">
+                                                                            Constitution Of Your Business
+                                                                        </th>
+                                                                        <td>PAN</td>
+
+                                                                    </thead>
+
+                                                                    <thead>
+
+                                                                        <th style="font-size: 10px; padding-left: 25%;">
+                                                                            Company Name
+                                                                        </th>
+                                                                        <td>PAN</td>
+
+                                                                    </thead>
+
+                                                                    <thead>
+
+                                                                        <th style="font-size: 10px; padding-left: 25%;">
+                                                                            Customer Full Name
+                                                                        </th>
+                                                                        <td>PAN</td>
+
+                                                                    </thead>
+
+                                                                    <thead>
+
+                                                                        <th style="font-size: 10px; padding-left: 25%;">
+                                                                            Industry Sector
+                                                                        </th>
+                                                                        <td>PAN</td>
+
+                                                                    </thead>
+
+                                                                    <thead>
+
+                                                                        <th style="font-size: 10px; padding-left: 25%;">
+                                                                            Nature Of Bussiness
+                                                                        </th>
+                                                                        <td>PAN</td>
+
+                                                                    </thead>
+
+
+                                                                    <thead>
+
+                                                                        <th style="font-size: 10px; padding-left: 25%;">
+                                                                            Contact No
+                                                                        </th>
+                                                                        <td>PAN</td>
+
+                                                                    </thead>
+
+                                                                    <thead>
+
+                                                                        <th style="font-size: 10px; padding-left: 25%;">
+                                                                            Email Id
+                                                                        </th>
+                                                                        <td>PAN</td>
+
+                                                                    </thead>
+
+                                                                    <thead>
+
+                                                                        <th style="font-size: 10px; padding-left: 25%;">
+                                                                            Address
+                                                                        </th>
+                                                                        <td>PAN</td>
+
+                                                                    </thead>
+
+                                                                    <thead>
+
+                                                                        <th style="font-size: 10px; padding-left: 25%;">
+                                                                            City
+                                                                        </th>
+                                                                        <td>PAN</td>
+
+                                                                    </thead>
+
+                                                                    <thead>
+
+                                                                        <th style="font-size: 10px; padding-left: 25%;">
+                                                                            Pin Code
+                                                                        </th>
+                                                                        <td>PAN</td>
+
+                                                                    </thead>
+
+                                                                    <thead>
+                                                                        <th style="padding-left: 25%;">Branch
+                                                                        </th>
+                                                                        <td>data</td>
+                                                                    </thead>
                                                                 </table>
                                                             </div>
-                
-                
                                                         </div>
 
-                                                        <div class="col-md-12 col-sm-12 col-xs-12 col-xl-6  mt-md-5 mt-sm-5 mt-s-5 mt-xl-0">
-                
-                                                            
+                                                        <div
+                                                            class="col-md-12 col-sm-12 col-xs-12 col-xl-6  mt-md-5 mt-sm-5 mt-s-5 mt-xl-0">
+
+
                                                             <div class="mb-2">
                                                                 <div class="table-responsive"
                                                                     style="text-align: center; padding: 5px; border-radius: 7px 7px 0px 0px; background-color: #ffffff; color: #004C8C;">
@@ -6626,32 +6785,193 @@
                                                                 <table class="table rounded-table"
                                                                     style="border-radius: 0px 0px 7px 7px; background-color: #ffffff; line-height: 20px;">
                                                                     <thead>
-                
+
                                                                         <th style="font-size: 10px; padding-left: 25%;">
-                                                                            Name
+                                                                            Name Of Authorized Signatory
                                                                         </th>
-                
-                                                                        <th style="font-size: 10px;" id="td">
+
+                                                                        <td style="font-size: 10px;" id="td">
                                                                             PAN
-                                                                        </th>
+                                                                        </td>
                                                                     </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td style="padding-left: 25%;">data.name
-                                                                            </td>
-                                                                            <td style="padding-left: -10%;" id="td">
-                                                                                data.</td>
-                                                                        </tr>
-                                                                        <br>
-                                                                    </tbody>
+                                                                    <thead>
+                                                                        <th style="padding-left: 25%;">Date Of Birth
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead>
+
+                                                                    <thead>
+                                                                        <th style="padding-left: 25%;">PAN Number
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead>
+
+                                                                    <thead>
+                                                                        <th style="padding-left: 25%;">Aadhar Number
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead>
+
+                                                                    <thead>
+                                                                        <th style="padding-left: 25%;">Gender
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead>
+
+
+                                                                    <thead>
+                                                                        <th style="padding-left: 25%;">Natinality
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead>
+
+                                                                    <thead>
+                                                                        <th style="padding-left: 25%;">Religion
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead>
+
+                                                                    <thead>
+                                                                        <th style="padding-left: 25%;">Mother Name
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead>
+
+                                                                     <thead>
+                                                                        <th style="padding-left: 25%;">Designation
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead>
+
+                                                                  <!--  <thead>
+                                                                        <th style="padding-left: 25%;">Telephone
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead> -->
+
+                                                                    <thead>
+                                                                        <th style="padding-left: 25%;">Email Id
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead>
+
+                                                                    <thead>
+                                                                        <th style="padding-left: 25%;">Signatory Photo
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead>
+
+                                                                    <thead>
+                                                                        <th style="padding-left: 25%;">Signatory sign
+                                                                        </th>
+                                                                        <td style="padding-left: -10%;" id="td">
+                                                                            data</td>
+                                                                    </thead>
                                                                 </table>
                                                             </div>
-                
-                
                                                         </div>
-                
-                
-                                                      
+
+                                                        <div class="col-md-12 col-sm-12 col-xs-12 col-xl-6  mt-md-5 mt-sm-5 mt-s-5 mt-xl-0">
+
+
+                                                        <div class="mb-2">
+                                                            <div class="table-responsive"
+                                                                style="text-align: center; padding: 5px; border-radius: 7px 7px 0px 0px; background-color: #ffffff; color: #004C8C;">
+                                                                <b>Bank Details</b>
+                                                            </div>
+                                                            <table class="table rounded-table"
+                                                                style="border-radius: 0px 0px 7px 7px; background-color: #ffffff; line-height: 20px;">
+                                                                <thead>
+
+                                                                    <th style="font-size: 10px; padding-left: 25%;">
+                                                                        Full Name
+                                                                    </th>
+
+                                                                    <td style="font-size: 10px;" id="td">
+                                                                        PAN
+                                                                    </td>
+
+                                                                </thead>
+                                                                <thead>
+                                                                    <th style="padding-left: 25%;">Mobile No
+                                                                    </th>
+                                                                    <td style="padding-left: -10%;" id="td">
+                                                                        data</td>
+                                                                </thead>
+
+                                                                <thead>
+                                                                    <th style="padding-left: 25%;">Bank Account No
+                                                                    </th>
+                                                                    <td style="padding-left: -10%;" id="td">
+                                                                        data</td>
+                                                                </thead>
+
+                                                                <thead>
+                                                                    <th style="padding-left: 25%;">Bank Name
+                                                                    </th>
+                                                                    <td style="padding-left: -10%;" id="td">
+                                                                        data</td>
+                                                                </thead>
+
+                                                                <thead>
+                                                                    <th style="padding-left: 25%;">Account Type
+                                                                    </th>
+                                                                    <td style="padding-left: -10%;" id="td">
+                                                                        data</td>
+                                                                </thead>
+
+
+                                                                <thead>
+                                                                    <th style="padding-left: 25%;">IFSC Code
+                                                                    </th>
+                                                                    <td style="padding-left: -10%;" id="td">
+                                                                        data</td>
+                                                                </thead>
+
+                                                                <thead>
+                                                                    <th style="padding-left: 25%;">Mode Of Payment
+                                                                    </th>
+                                                                    <td style="padding-left: -10%;" id="td">
+                                                                        data</td>
+                                                                </thead>
+
+                                                                <thead>
+                                                                    <th style="padding-left: 25%;">Debit Amount
+                                                                    </th>
+                                                                    <td style="padding-left: -10%;" id="td">
+                                                                        data</td>
+                                                                </thead>
+
+                                                                <thead>
+                                                                    <th style="padding-left: 25%;">Debit Type
+                                                                    </th>
+                                                                    <td style="padding-left: -10%;" id="td">
+                                                                        data</td>
+                                                                </thead>
+
+                                                                <thead>
+                                                                    <th style="padding-left: 25%;">Promunim Of India Id
+                                                                    </th>
+                                                                    <td style="padding-left: -10%;" id="td">
+                                                                        data</td>
+                                                                </thead>
+
+                                                            </table>
+                                                        </div>
+                                                        </div>
+
+
                                                     </div>
 
                                                     <div style="display:none">
