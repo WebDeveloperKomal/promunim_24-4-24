@@ -7,6 +7,7 @@ import { AofTwomodel } from './aofmodel2';
 import { BranchModel } from '../branch/branch.component.model';
 import { TidService } from '../tid.service';
 import { HttpClient } from '@angular/common/http';
+import { getAllBranchDetailsModel } from './getAllBranchDetailsModel';
 
 
 @Component({
@@ -33,6 +34,7 @@ export class AccountopeningFormComponent {
 
   industry_sector_id : boolean = false
 
+  getAllBranchDetails : getAllBranchDetailsModel [] = [];
   AOF2: AofTwomodel = new AofTwomodel;
 
 
@@ -322,20 +324,7 @@ export class AccountopeningFormComponent {
     //   this.step21.patchValue({ tid: tid });
     // }
 
-    const tid = '1713016009';
-    const customer_id = '667';
-    const acc_no = '1405000000010';
-    
-    this.apiservice.getAllBranchDetails(tid, customer_id, acc_no).subscribe(
-      (data:any) => {
-        // Handle the data returned from the API
-        console.log('getAllBranchDetails,,,,,,,,,,,,,,,,,,,',data); // Log the data to the console, you can handle it as per your requirement
-      },
-      (error : any) => {
-        // Handle any errors that occur during the API call
-        console.error('Error fetching data:', error);
-      }
-    );
+   
   
 
     this.apiservice.docCategory().subscribe(  //AOF4
@@ -518,6 +507,11 @@ export class AccountopeningFormComponent {
           icon: 'success',
           title: 'Aadhar Uploaded!',
           text: 'Your document has been successfully uploaded.',
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            this.activeTab = 'tab2';
+          }
         });
       },
       (error: any) => {
@@ -666,8 +660,8 @@ export class AccountopeningFormComponent {
     this.savepro.value.tid = localStorage.getItem("tid");
     this.savepro.value.billingCycle = localStorage.getItem("billingCycle");
     this.savepro.value.productId = localStorage.getItem("productId");
-    console.log("savePro values : ", this.savepro.value); // Log the values being sent in the request
-    this.apiservice.savePro(this.savepro.value).subscribe(
+    console.log("savePro values : ", this.savepro.value); 
+    this.apiservice.savePro(this.savepro).subscribe(
       (response: any) => {
         console.log("savePro response$$$$$$$ ", response); // Log the response received from the server
         localStorage.setItem("accountNumber", response.accountNumber); 
@@ -688,8 +682,6 @@ export class AccountopeningFormComponent {
       (response: any) => {
         console.log('OTP gene rated:', response);
         console.log('Data sent in request:', this.step5.value);
-        
-        // Display success message using Swal
         Swal.fire({
           icon: 'success',
           // title: 'Bank Details Process Completed!',
@@ -697,9 +689,7 @@ export class AccountopeningFormComponent {
           text: 'Your Registation Process completed successfully.',
         })
         .then((result) => {
-          // If Swal is closed, check if it was confirmed, then open Tab 6
           if (result.isConfirmed) {
-            // Change the active tab to 'tab6'
             this.activeTab = 'tab6';
           }
         });
