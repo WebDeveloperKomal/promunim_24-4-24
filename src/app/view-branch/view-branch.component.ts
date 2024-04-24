@@ -25,6 +25,9 @@ export class ViewBranchComponent {
   activeTab: string = 'tab1';
   branch: BranchModel = new BranchModel();
   id!:number;
+
+  // [(ngModel)]="getdata[0].fullName" [ngModelOptions]="{standalone: true}"
+  // [(ngModel)]="getdata.businessdetails[0].customerFullName"
  
   constructor(private formBuilder: FormBuilder, private apiService:ApiService,private route:ActivatedRoute, private router :  Router) {
     this.viewbranchForm = this.formBuilder.group({

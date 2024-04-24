@@ -23,6 +23,7 @@ export class HeaderComponent {
     this.securityService.getUserData().subscribe(
       (responce:any)=>{
         this.user= responce.data
+        console.log("**", responce.data)
       },
       (error:any)=>{
         console.error(error);        

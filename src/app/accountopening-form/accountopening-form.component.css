@@ -203,16 +203,67 @@ label{
     font-size: 9px;
     margin-top: -50px;
 }
+
 .wizard_horizontal ul.wizard_steps li a:after {
     content: "";
     position: absolute;
     height: 5px;
     background: #3BB161;
     top: 20px;
-    width: 180px;
+    width: 370px;
     z-index: 4;
     left: 10px;
 }
+@media screen and (max-width: 1800px) {
+.wizard_horizontal ul.wizard_steps li a:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background: #3BB161;
+    top: 20px;
+    width: 280px;
+    z-index: 4;
+    left: 10px;
+}
+}
+@media screen and (max-width: 1500px) {
+    .wizard_horizontal ul.wizard_steps li a:after {
+        content: "";
+        position: absolute;
+        height: 5px;
+        background: #3BB161;
+        top: 20px;
+        width: 208px;
+        z-index: 4;
+        left: 10px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .wizard_horizontal ul.wizard_steps li a:after {
+        content: "";
+        position: absolute;
+        height: 5px;
+        background: #3BB161;
+        top: 20px;
+        width: 105px;
+        z-index: 4;
+        left: 10px;
+    }
+  }
+
+  /* @media screen and (max-width: 1200px) {
+    .wizard_horizontal ul.wizard_steps li a:after {
+        content: "";
+        position: absolute;
+        height: 5px;
+        background: #3BB161;
+        top: 20px;
+        width: 152px;
+        z-index: 4;
+        left: 10px;
+    }
+  } */
 
 .wizard_horizontal ul.wizard_steps li:last-child a:after {
     display: none; /* Hide the connecting line for the last step */

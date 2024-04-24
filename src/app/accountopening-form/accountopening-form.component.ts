@@ -41,6 +41,8 @@ export class AccountopeningFormComponent {
   branchId = localStorage.getItem('branchId');
   tid = localStorage.getItem('tid');
   aofnumber = localStorage.getItem('aofnumber');
+  cudt_id : any ;
+  account_number : any ;
 
   branchList:BranchModel[] = [];
   collectionSize =100;
@@ -49,7 +51,11 @@ export class AccountopeningFormComponent {
 
   showForm: boolean = false;
   declaration: string = '';
-
+  getdata: any[] = [] ;
+  getdata1: any[] = [] ;
+  getdata2 : any[] = [] ;
+  getdata3 : any ;
+  hidedata1 : boolean = false ;
   onCheckboxChange() {
     this.showForm = !this.showForm;
   }
@@ -74,7 +80,8 @@ export class AccountopeningFormComponent {
   photo!: File;
   sign!: File;
 
-  
+  adhardata : any ;
+  pandata : any ;
   docImage!: File;
 
   onPhotoSelected(event: any) {
@@ -156,10 +163,15 @@ export class AccountopeningFormComponent {
 
     
       this.savepro = this.formBuilder.group({
+      // tid: localStorage.getItem("tid"),
+      // billingCycle: localStorage.getItem("billingCycle"),
+      // assignDate:  ['', Validators.required],
+      // productId: localStorage.getItem("productId")
       tid: ['', Validators.required],
       billingCycle: ['', Validators.required],
-      assignDate:  ['', Validators.required],
-      productId: ['', Validators.required]
+      assignDate: ['', Validators.required],
+      productId: ['', Validators.required],
+
     })
 
     this.step3.get('industry_sector_id')?.valueChanges.subscribe((value) => {
@@ -372,6 +384,12 @@ export class AccountopeningFormComponent {
         console.error('API Error:', error);
       }
     );
+
+
+    // this.get_all_branch_details() ;
+    // this.get_customer_docs() ;
+    // this.get_offline_pan();
+    // this.get_offline_adahar() ;
   }
 
 
@@ -429,13 +447,18 @@ export class AccountopeningFormComponent {
 
   businessDetails() {
     console.log('Data sent in request:', this.step3.value);
+    // if(this.step3.value == 1){
+    //  this.hidedata1 =  !this.hidedata1
+    // }
     this.apiservice.businessDetails(this.step3.value).subscribe(
       (response: any) => {
         console.log('businessDetails:', response);
         // console.log('businessDetails:', response.aofnumber);
         localStorage.setItem('aofnumber', response.aofnumber);
         localStorage.setItem('tid', response.tid);
+         localStorage.setItem("customerAccountNumber" , response.tempCustId.customerId);
        console.log('tid', response.tid);
+       console.log('tid', response.tempCustId.customerId);
         // console.log('Updated tid.......', response.industry_sector_id);
         localStorage.setItem('inCid',this.step3.value.industry_sector_id);
         localStorage.setItem('inName',this.step3.value.industry_sector_name);
@@ -550,31 +573,67 @@ export class AccountopeningFormComponent {
     this.tidToSearch();
   }
 
-  getDoc(){
-    this.step21.value.tid = localStorage.getItem("tid") ;
-    this.step21.value.customerDocumentCategoryId = localStorage.getItem("inCid") ;
-    this.step21.value.customerDocumentType = localStorage.getItem("inName") ;
-    console.log("111111111111111111111111111111111 ::::::: ", this.step21.value , this.docImage);
-    this.apiservice.getDoc(this.step21.value , this.docImage).subscribe(
-      (response: any) => {
-        console.log("AOF3111111 ::::::: ", this.step21.value , this.docImage);
-        Swal.fire({
-          icon: 'success',
-          title: 'Document Uploaded!',
-          text: 'Your document has been successfully uploaded.',
-        });
-      },
-      (error: any) => {
-        console.error("not working", error);
-        Swal.fire({
-          icon: 'error',
-          title: 'Validation Error!',
-          text: 'Please fill in all fields.',
-        });
-      }
-    );
-    this.tidToSearch();
+  
+getDoc(){
+
+  if (!this.docImage) {
+  Swal.fire({
+  icon: 'error',
+  title: 'No Document Selected!',
+  text: 'Please select a document to upload.',
+  });
+  return; // Exit the function early if no document is selected
   }
+  
+  this.step21.value.tid = localStorage.getItem("tid") ;
+  this.step21.value.customerDocumentCategoryId = localStorage.getItem("inCid") ;
+  this.step21.value.customerDocumentType = localStorage.getItem("inName") ;
+  console.log("111111111111111111111111111111111 ::::::: ", this.step21.value , this.docImage);
+  this.apiservice.getDoc(this.step21.value , this.docImage).subscribe(
+  (response: any) => {
+  console.log("AOF3111111 ::::::: ", this.step21.value , this.docImage);
+  Swal.fire({
+  icon: 'success',
+  title: 'Document Uploaded!',
+  text: 'Your document has been successfully uploaded.',
+  });
+  },
+  (error: any) => {
+  console.error("not working", error);
+  Swal.fire({
+  icon: 'error',
+  title: 'Validation Error!',
+  text: 'Please fill in all fields.',
+  });
+  }
+  );
+  this.tidToSearch();
+  }
+  // getDoc(){ 
+  //   this.step21.value.tid = localStorage.getItem("tid") ;
+  //   this.step21.value.customerDocumentCategoryId = localStorage.getItem("inCid") ;
+  //   this.step21.value.customerDocumentType = localStorage.getItem("inName") ;
+  //   console.log("111111111111111111111111111111111 ::::::: ", this.step21.value , this.docImage);
+  //   this.apiservice.getDoc(this.step21.value , this.docImage).subscribe(
+  //     (response: any) => {
+  //       console.log("AOF3111111 ::::::: ", this.step21.value , this.docImage);
+  //       Swal.fire({
+  //         icon: 'success',
+  //         title: 'Document Uploaded!',
+  //         text: 'Your document has been successfully uploaded.',
+  //       });
+  //     },
+  //     (error: any) => {
+  //       console.error("not working", error);
+  //       Swal.fire({
+  //         icon: 'error',
+  //         title: 'Validation Error!',
+  //         text: 'Please fill in all fields.',
+  //       });
+  //     }
+  //   );
+  //   this.tidToSearch();
+  // }
 
    
   personalInfo() {
@@ -661,12 +720,15 @@ export class AccountopeningFormComponent {
     this.savepro.value.billingCycle = localStorage.getItem("billingCycle");
     this.savepro.value.productId = localStorage.getItem("productId");
     console.log("savePro values : ", this.savepro.value); 
-    this.apiservice.savePro(this.savepro).subscribe(
-      (response: any) => {
+    this.apiservice.savePro(this.savepro.value).subscribe(
+      (response: any) => {  
+        console.log("savePro response$$$$$$$ ", this.savepro.value);
         console.log("savePro response$$$$$$$ ", response); // Log the response received from the server
+        
+        localStorage.setItem("customerAccountNumber", response.customerAccountNumber); 
         localStorage.setItem("accountNumber", response.accountNumber); 
         console.log("savePro Account Number ", localStorage.getItem('accountNumber'));
-      },
+      }, 
       (error: any) => {
         console.error("Error in savePro: ", error); // Log any errors that occur during the request
       }
@@ -705,6 +767,86 @@ export class AccountopeningFormComponent {
       }
     );
   }
+
+ 
+
+  get_all_branch_details(){
+   let tid = localStorage.getItem("tid");
+   let cudt_id = localStorage.getItem("customerAccountNumber");
+   let account_number = localStorage.getItem("accountNumber");
+   console.log("tid1 ",tid ,cudt_id, account_number );
+    this.apiservice.get_all_branch_details(tid,cudt_id, account_number).subscribe(
+      (response: any) => {  
+
+        // this.getdata = response.oldbankDetails ;
+        this.getdata = response.AuthorizedSignatoryDetails ;
+        
+        this.getdata1 = response.businessdetails
+         ;
+        this.getdata2 = response.oldbankDetails ;
+        this.getdata3 = response ;
+        console.log("savePro response$$$$$$$1 ", response);
+        console.log("savePro response$$$$$$$1 ", response.businessdetails[0].companyName);
+    }, 
+      (error: any) => {
+        console.error("Error in savePro: ", error); 
+      }
+    );
+  }
+
+  get_customer_docs(){
+    let tid = localStorage.getItem("tid");
+    console.log("tid2 ",tid);
+    this.apiservice.get_customer_docs(this.tid).subscribe(
+      (response: any) => {  
+        console.log("savePro response$$$$$$$2 ", response); 
+    }, 
+      (error: any) => {
+        console.error("Error in savePro: ", error); 
+      }
+    );
+  }
+
+
+  get_offline_pan(){
+    let tid = localStorage.getItem("tid");
+    console.log("tid3 ",tid);
+    this.apiservice.get_offline_pan(this.tid).subscribe(
+      (response: any) => {  
+        this.pandata = response.data ;
+        console.log("savePro response$$$$$$$3 ", response.data); 
+    }, 
+      (error: any) => {
+        console.error("Error in savePro: ", error); 
+      }
+    );
+  }
+
+  get_offline_adahar(){
+    let tid = localStorage.getItem("tid");
+    console.log("tid4 ",tid);
+    this.apiservice.get_offline_adahar(this.tid).subscribe(
+      (response: any) => {  
+        this.adhardata = response.data ;
+      
+        console.log("savePro response$$$$$$$3 ", response.data); 
+        console.log("savePro response$$$$$$$4 ", response); 
+    }, 
+      (error: any) => {
+        console.error("Error in savePro: ", error); 
+      }
+    );
+  }
+
+  allreviewdata(){
+    this.get_all_branch_details() ;
+    this.get_customer_docs();
+    this.get_offline_pan();
+    this.get_offline_adahar();
+
+
+  }
+
 
   performFinishActions() {
     this.onsubmit2();

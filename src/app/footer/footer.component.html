@@ -7,9 +7,60 @@
             <strong 
              >Copyright © 2024<a href="">CRM</a>.</strong> All rights reserved.
             </div>
-            <div class="d-flex justify-content-end hidden-xs">
+            <div class="d-flex justify-content-center hidden-xs">
                 Powered by
               </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+getDoc(){
+
+if (!this.docImage) {
+Swal.fire({
+icon: 'error',
+title: 'No Document Selected!',
+text: 'Please select a document to upload.',
+});
+return; // Exit the function early if no document is selected
+}
+
+this.step21.value.tid = localStorage.getItem("tid") ;
+this.step21.value.customerDocumentCategoryId = localStorage.getItem("inCid") ;
+this.step21.value.customerDocumentType = localStorage.getItem("inName") ;
+console.log("111111111111111111111111111111111 ::::::: ", this.step21.value , this.docImage);
+this.apiservice.getDoc(this.step21.value , this.docImage).subscribe(
+(response: any) => {
+console.log("AOF3111111 ::::::: ", this.step21.value , this.docImage);
+Swal.fire({
+icon: 'success',
+title: 'Document Uploaded!',
+text: 'Your document has been successfully uploaded.',
+});
+},
+(error: any) => {
+console.error("not working", error);
+Swal.fire({
+icon: 'error',
+title: 'Validation Error!',
+text: 'Please fill in all fields.',
+});
+}
+);
+this.tidToSearch();
+} -->
+
+

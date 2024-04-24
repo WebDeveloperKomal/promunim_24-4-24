@@ -454,6 +454,7 @@ export class ApiService {
 
 
   savePro(savePro: any): any { //Running
+    console.log(savePro)
     return this.http.post(`${this.baseUrl1}/save-customer-pro`, savePro)
   }
 
@@ -489,8 +490,24 @@ export class ApiService {
     return this.http.get(`${this.baseUrl1}/getProductsdetails`)
   }
 
- 
+  get_all_branch_details(tId : any , cudt_id : any , account_number : any ): any { //Running
+    return this.http.get(`${this.baseUrl1}/get-all-branch-details/` + tId + "/" + cudt_id + "/" + account_number)
+  }
 
+  get_customer_docs(tId : any): any { //Running
+    return this.http.get(`${this.baseUrl1}/get_customer-docs/`+ tId)
+  }
+  get_offline_pan(tId : any): any { //Running
+    return this.http.get(`${this.baseUrl1}/get-offline-pan/`+ tId)
+  }
+  get_offline_adahar(tId : any): any { //Running
+    return this.http.get(`${this.baseUrl1}/get-offline-adahar/`+ tId)
+  }
+  // 1.	https://clientportal.promunim.com/send/get-all-branch-details/{tid}/{cudt_id}/{account_number}
+  // 2.	 https://clientportal.promunim.com/send/get_customer-docs/{tid}
+  // 3.	 https://clientportal.promunim.com/send/get-offline-pan/{tid}
+  // 4.	https://clientportal.promunim.com/send/get-offline-adahar/{tid}
+  
   /**************** AOF Form  *************/
   TidDetails(tid: any): any { //Running
     return this.http.get(`${this.baseUrl}/get-tid-details/` + tid)

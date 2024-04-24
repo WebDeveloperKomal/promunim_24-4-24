@@ -848,7 +848,7 @@ this.UpdatecustInteractionForm.patchValue({
  getVoucher(acccountNo : any){
    this.accountNo = this.route.snapshot.params['accountNo'];
    this.apiService.getVoucher(this.accountNo).subscribe(
-     (res:any)=>{
+     (res:any)=>{ 
        this.voucherdetails =res.data;
        // localStorage.setItem("followupId", res.data.followupId);
        // localStorage.setItem("followupId", this.customerinteractiondetailsobj.followupId);

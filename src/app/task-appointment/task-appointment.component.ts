@@ -126,7 +126,7 @@ addTask(): void {
   )
 } 
 
-fetchScheduleData() {
+fetchScheduleData(){
   this.apiservice.getTask().subscribe(
     (resp: any) => {
       console.log('Tasks retrieved successfully', resp.data);
